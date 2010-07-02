@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.0.xsd
+	">
+	
+	<import resource="classes/applicationContext.xml"/>	
+    
+	<security:http auto-config="true">
+		<security:intercept-url pattern="/user/add.html" access="ROLE_ADMIN" filters="none"/>
+		<security:intercept-url pattern="/**" access="ROLE_USER"/>
+	</security:http>
+
+	<security:jdbc-user-service id="jdbcProvider"
+		data-source-ref="dataSource" 
+		users-by-username-query="select login,password,enabled from Users where login=?" 
+		authorities-by-username-query="select u.login,r.name from Users u,Roles r,HasRoles h where h.user_key=u.key_ and h.role_key=r.key_ and u.login=?" 
+	/>
+	
+	<security:user-service id="bootstrapProvider" properties="users.properties" />
+
+    <security:authentication-manager>
+    	
+		<security:authentication-provider user-service-ref="jdbcProvider">
+			<security:password-encoder hash="md5" />
+		</security:authentication-provider>
+		
+		<security:authentication-provider user-service-ref="bootstrapProvider">
+			<security:password-encoder hash="md5" />
+		</security:authentication-provider>
+		
+	</security:authentication-manager>
+
+</beans>

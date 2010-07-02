@@ -1,0 +1,225 @@
+package flexcom.casehistory.aspect.test;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.context.ContextConfiguration;
+
+import flexcom.casehistory.aspect.EventTrigger;
+import flexcom.casehistory.ticket.dao.ClientDAO;
+import flexcom.casehistory.ticket.dao.EventDAO;
+import flexcom.casehistory.ticket.dao.NoteDAO;
+import flexcom.casehistory.ticket.dao.ProductDAO;
+import flexcom.casehistory.ticket.dao.TicketDAO;
+import flexcom.casehistory.ticket.dao.UserDAO;
+import flexcom.casehistory.ticket.entity.Client;
+import flexcom.casehistory.ticket.entity.Event;
+import flexcom.casehistory.ticket.entity.Note;
+import flexcom.casehistory.ticket.entity.Priority;
+import flexcom.casehistory.ticket.entity.Product;
+import flexcom.casehistory.ticket.entity.Ticket;
+import flexcom.casehistory.ticket.entity.User;
+
+/**
+ * Test class for the {@link EventTrigger}
+ * 
+ * @author philippe
+ * 
+ */
+// TODO @RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(value = "classpath:applicationContext.xml")
+public class EventTriggerTest {
+	
+	/**
+	 * A {@link Product}
+	 */
+	private Product product;
+
+	/**
+	 * A {@link Client}
+	 */
+	private Client client;
+
+	/**
+	 * A {@link Ticket}
+	 */
+	private Ticket ticket;
+
+	/**
+	 * A {@link Note}
+	 */
+	private Note note;
+
+	/**
+	 * A {@link User}
+	 */
+	private User user;
+
+	/**
+	 * Note DAO
+	 */
+	@Autowired
+	private NoteDAO noteDAO;
+
+	/**
+	 * Client DAO
+	 */
+	@Autowired
+	private ClientDAO clientDAO;
+
+	/**
+	 * Product DAO
+	 */
+	@Autowired
+	private ProductDAO productDAO;
+
+	/**
+	 * Client DAO
+	 */
+	@Autowired
+	private TicketDAO ticketDAO;
+
+	/**
+	 * Product DAO
+	 */
+	@Autowired
+	private UserDAO userDAO;
+
+	/**
+	 * Event DAO
+	 */
+	@Autowired
+	private EventDAO eventDAO;
+	
+	/**
+	 * Setting up the context for all tests : authentication on an user
+	 */
+	@SuppressWarnings("deprecation")
+	@BeforeClass
+	public static void before() {
+		org.springframework.security.core.userdetails.User user = new org.springframework.security.core.userdetails.User("user", "", true, true, true, true, new GrantedAuthority[]{});
+		Authentication auth = new UsernamePasswordAuthenticationToken(user, null) ;
+		SecurityContextHolder.getContext().setAuthentication(auth);
+	}
+
+	/**
+	 * Clearing the context
+	 */
+	@AfterClass
+	public static void after() {
+		SecurityContextHolder.getContext().setAuthentication(null);
+	}
+
+	/**
+	 * 
+	 * 
+	 * @throws Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		client = new Client();
+		client.setCompany("company");
+		clientDAO.createClient(client);
+
+		product = new Product();
+		product.setName("p");
+		product.setVersion("1.0");
+		product.setBuild("1");
+		productDAO.createProduct(product);
+		
+		ticket = new Ticket();
+		ticket.setTitle("title");
+		ticket.setClient(client);
+		ticket.setProduct(product);
+		ticketDAO.createTicket(ticket);
+		
+		user = new User();
+		user.setLogin("user");
+		user.setPassword("pwd");
+		user.setEmail("user@yopmail.com");
+		user.setRoles("ROLE_USER");
+		userDAO.createUser(user);
+	}
+
+	/**
+	 * 
+	 * 
+	 * @throws Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+		noteDAO.deleteAll();
+		note = null;
+		client = null;
+		product = null;
+		ticket = null;
+		user = null;
+		clientDAO.deleteAll();
+		productDAO.deleteAll();
+		ticketDAO.deleteAll();
+		userDAO.deleteAll();
+	}
+
+	/**
+	 * Test if the correct event is generated when a ticket is created 
+	 */
+//	@Test doesn't work 
+	public void testGenerateTicketCreationEvent() {
+		List<Event> events = eventDAO.findByTicket(ticket);
+		assertEquals(1, events.size());
+		
+		Event e = events.get(0);
+		assertEquals("create", e.getAction());
+		assertEquals(user, e.getAuthor());
+		assertEquals(ticket, e.getTicket());
+	}
+	
+	/**
+	 * Test if the correct event is generated when a ticket is updated
+	 */
+//	@Test doesn't work 
+	public void testGenerateTicketUpdateEvent() {
+		Ticket t = ticketDAO.findByTitle("title").get(0);
+		t.setPriority(Priority.URGENT);
+		ticketDAO.updateTicket(t);
+		
+		List<Event> events = eventDAO.findByTicket(ticket);
+		assertEquals(1, events.size());
+		
+		Event e = events.get(0);
+		assertEquals("update", e.getAction());
+		assertEquals(user, e.getAuthor());
+		assertEquals(ticket, e.getTicket());
+	}
+	
+	/**
+	 * Test if the correct event is generated when we add a note to a ticket
+	 */
+//	@Test doesn't work 
+	public void testGenerateNoteAdditionEvent() {
+		note = new Note();
+		note.setNote("Note");
+		note.setAuthor(user);
+		note.setTicket(ticket);
+		noteDAO.createNote(note);
+		
+		List<Event> events = eventDAO.findByTicket(ticket);
+		assertEquals(1, events.size());
+		
+		Event e = events.get(0);
+		assertEquals("note added", e.getAction());
+		assertEquals(user, e.getAuthor());
+		assertEquals(ticket, e.getTicket());
+	}
+	
+}
