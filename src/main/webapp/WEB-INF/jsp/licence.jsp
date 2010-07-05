@@ -21,6 +21,7 @@
 		    		<th>Client</th>
 		    		<th>Product</th>
 		    		<th>Maintenance</th>
+		    		<th>Enabled</th>
 				</tr>
 			    <c:forEach items="${list}" var="licence">
 			    	<tr>
@@ -31,6 +32,7 @@
 			    		<td><a href="client/view.html?id=${licence.client.id}"><c:out value="${licence.client.name}"/></a></td>
 			    		<td><a href="product/view.html?id=${licence.product.id}"><c:out value="${licence.product.name}"/></a></td>
 			    		<td><c:out value="${licence.maintenance}"/></td>
+			    		<td><c:out value="${licence.enabled}"/></td>
 			    		<td><a href="licence/edit.html?id=${licence.id}"><img border="0" src="<c:url value ="/img/Edit_16x16.png" />" /></a></td>
 			    		<td><input src="<c:url value ="/img/Delete_16x16.png" />" type="image" onclick="deleteObject('Are you sure you want to delete this licence?', '${licence}', 'licence/delete.html?id=${licence.id}')" /></td>
 			    	</tr>

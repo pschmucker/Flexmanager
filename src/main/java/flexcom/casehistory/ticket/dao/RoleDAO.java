@@ -77,4 +77,11 @@ public interface RoleDAO {
 	 */
 	public long count();
 
+	/**
+	 * Find all enabled roles
+	 * 
+	 * @return A list containing all enabled roles
+	 */
+	public List<Role> findAllEnabled();
+
 }

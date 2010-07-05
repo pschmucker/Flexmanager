@@ -88,4 +88,9 @@ public class RoleDAOImpl extends JPAGenericDAO<Role, Long> implements RoleDAO {
 		update(role);
 	}
 
+	@Override
+	public List<Role> findAllEnabled() {
+		return entityManager.createQuery("select r from Role r where r.enabled = true", Role.class).getResultList();
+	}
+
 }

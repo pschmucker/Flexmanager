@@ -127,4 +127,11 @@ public interface UserDAO {
 	 * @param pwd The new password
 	 */
 	public void changePassword(User user, String pwd);
+
+	/**
+	 * Find all enabled users
+	 * 
+	 * @return A list containing all enabled users
+	 */
+	public List<User> findAllEnabled();
 }

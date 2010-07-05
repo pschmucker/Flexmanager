@@ -351,7 +351,7 @@ public class UserControllerTest {
 	public void testTickets() {
 		ticketDataSet.setup();
 
-		Object[] tickets = ticketDAO.findAll().toArray();
+		Object[] tickets = ticketDAO.findAllEnabled().toArray();
 		assertArrayEquals(controller.tickets(userId).toArray(), tickets);
 
 		ticketDataSet.clear();
@@ -482,7 +482,7 @@ public class UserControllerTest {
 	 */
 	@Test
 	public void testRoles() {
-		Object[] roles = roleDAO.findAll().toArray();
+		Object[] roles = roleDAO.findAllEnabled().toArray();
 		assertArrayEquals(roles, controller.roles().toArray());
 	}
 

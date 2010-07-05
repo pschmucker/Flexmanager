@@ -75,4 +75,12 @@ public interface ClientDAO {
 	 * @return The number of managed {@link Client} entities
 	 */
 	public long count();
+	
+	/**
+	 * Find all enabled clients
+	 * 
+	 * @return A list containing all enabled clients
+	 */
+	public List<Client> findAllEnabled();
+
 }

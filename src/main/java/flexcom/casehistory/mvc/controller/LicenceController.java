@@ -147,7 +147,7 @@ public class LicenceController {
 	 */
 	@ModelAttribute(value = "clients")
 	public List<Client> clients() {
-		return clientDAO.findAll();
+		return clientDAO.findAllEnabled();
 	}
 
 	/**
@@ -157,7 +157,7 @@ public class LicenceController {
 	 */
 	@ModelAttribute(value = "products")
 	public List<Product> products() {
-		return productDAO.findAll();
+		return productDAO.findAllEnabled();
 	}
 
 	/**
@@ -189,7 +189,9 @@ public class LicenceController {
 	 */
 	@RequestMapping(value = "licence/delete")
 	public String delete(@RequestParam(required = true, value = "id") long licenceId) {
-		licenceDAO.deleteLicence(licenceDAO.findById(licenceId));
+		Licence licence = licenceDAO.findById(licenceId);
+		licence.setEnabled(false);
+		licenceDAO.updateLicence(licence);
 		return "redirect:/licence.html";
 	}
 
@@ -282,7 +284,7 @@ public class LicenceController {
 	 */
 	@ModelAttribute(value = "maintenances")
 	public List<Maintenance> maintenances() {
-		return maintenanceDAO.findAll();
+		return maintenanceDAO.findAllEnabled();
 	}
 
 }

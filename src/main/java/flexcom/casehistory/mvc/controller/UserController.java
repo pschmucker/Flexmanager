@@ -214,7 +214,7 @@ public class UserController {
 	 */
 	@ModelAttribute(value = "tickets")
 	public List<Ticket> tickets(@RequestParam(required = false, value = "id") Long userId) {
-		List<Ticket> tickets = ticketDAO.findAll();
+		List<Ticket> tickets = ticketDAO.findAllEnabled();
 		if (userId != null) {
 			Set<Ticket> assignedTickets = userDAO.findById(userId).getAssignedTickets();
 			tickets.removeAll(assignedTickets);

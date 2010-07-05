@@ -371,8 +371,8 @@ public class ContactControllerTest {
 	 * manager
 	 */
 	@Test
-	public void testClients() {
-		Object[] clients = clientDAO.findAll().toArray();
+	public void testCompanies() {
+		Object[] clients = clientDAO.findAllEnabled().toArray();
 		assertArrayEquals(clients, controller.companies().toArray());
 	}
 

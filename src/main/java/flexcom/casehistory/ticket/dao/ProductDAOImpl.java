@@ -95,4 +95,9 @@ public class ProductDAOImpl extends JPAGenericDAO<Product, Long> implements Prod
 	public long count() {
 		return entityManager.createNamedQuery("product.count", Long.class).getSingleResult();
 	}
+
+	@Override
+	public List<Product> findAllEnabled() {
+		return entityManager.createQuery("select p from Product p where p.enabled = true", Product.class).getResultList();
+	}
 }

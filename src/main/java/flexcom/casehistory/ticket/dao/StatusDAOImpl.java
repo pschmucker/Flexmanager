@@ -88,4 +88,9 @@ public class StatusDAOImpl extends JPAGenericDAO<Status, Long> implements Status
 		update(status);
 	}
 
+	@Override
+	public List<Status> findAllEnabled() {
+		return entityManager.createQuery("select s from Status s where s.enabled = true", Status.class).getResultList();
+	}
+
 }

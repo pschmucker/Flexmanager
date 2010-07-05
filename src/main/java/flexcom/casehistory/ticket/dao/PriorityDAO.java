@@ -77,4 +77,10 @@ public interface PriorityDAO {
 	 */
 	public long count();
 
+	/**
+	 * Find all enabled priorities
+	 * 
+	 * @return A list containing all enabled priorities
+	 */
+	public List<Priority> findAllEnabled();
 }

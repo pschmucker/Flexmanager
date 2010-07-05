@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -41,7 +42,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 	@NamedQuery(name = "ticket.findByClient", query = "select t from Ticket t where t.client = :client"),
 	@NamedQuery(name = "ticket.findByProduct", query = "select t from Ticket t where t.product = :product"),
 	@NamedQuery(name = "ticket.findByUserInCharge", query = "select t from Ticket t where :user member of t.usersInCharge"),
-	@NamedQuery(name = "ticket.findAllUnassigned", query = "select t from Ticket t where t.usersInCharge is empty"),
+	@NamedQuery(name = "ticket.findAllUnassigned", query = "select t from Ticket t where t.usersInCharge is empty and t.enabled = true"),
 	@NamedQuery(name = "ticket.count", query = "select count(*) from Ticket t") 
 })
 public class Ticket {
@@ -345,7 +346,7 @@ public class Ticket {
 	 * 
 	 * @return The set of events concerning this ticket
 	 */
-	@OneToMany(mappedBy = "ticket", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "ticket", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	public Set<Event> getEvents(){
 		return events;
 	}
@@ -364,7 +365,7 @@ public class Ticket {
 	 * 
 	 * @return The set of notes concerning this ticket
 	 */
-	@OneToMany(mappedBy = "ticket", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "ticket", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	public Set<Note> getNotes(){
 		return notes;
 	}

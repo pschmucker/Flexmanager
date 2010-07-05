@@ -92,4 +92,9 @@ public class PartnerDAOImpl extends JPAGenericDAO<Partner, Long> implements Part
 	public long count() {
 		return entityManager.createNamedQuery("partner.count", Long.class).getSingleResult();
 	}
+
+	@Override
+	public List<Partner> findAllEnabled() {
+		return entityManager.createQuery("select p from Partner p where p.enabled = true", Partner.class).getResultList();
+	}
 }

@@ -88,4 +88,9 @@ public class MaintenanceDAOImpl extends JPAGenericDAO<Maintenance, Long> impleme
 		update(maintenance);
 	}
 
+	@Override
+	public List<Maintenance> findAllEnabled() {
+		return entityManager.createQuery("select m from Maintenance m where m.enabled = true", Maintenance.class).getResultList();
+	}
+
 }

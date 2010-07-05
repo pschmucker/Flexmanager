@@ -238,7 +238,7 @@ public class TicketController {
 
 	@ModelAttribute(value = "users")
 	public List<User> users() {
-		return userDAO.findAll();
+		return userDAO.findAllEnabled();
 	}
 	
 	/**
@@ -248,7 +248,7 @@ public class TicketController {
 	 */
 	@ModelAttribute(value = "clients")
 	public List<Client> clients() {
-		return clientDAO.findAll();
+		return clientDAO.findAllEnabled();
 	}
 
 	/**
@@ -258,7 +258,7 @@ public class TicketController {
 	 */
 	@ModelAttribute(value = "products")
 	public List<Product> products() {
-		return productDAO.findAll();
+		return productDAO.findAllEnabled();
 	}
 
 	/**
@@ -268,7 +268,7 @@ public class TicketController {
 	 */
 	@ModelAttribute(value = "contacts")
 	public List<Contact> contacts() {
-		return contactDAO.findAll();
+		return contactDAO.findAllEnabled();
 	}
 
 	/**
@@ -278,7 +278,7 @@ public class TicketController {
 	 */
 	@ModelAttribute(value = "priorities")
 	public List<Priority> priorities() {
-		return priorityDAO.findAll();
+		return priorityDAO.findAllEnabled();
 	}
 
 	/**
@@ -288,7 +288,7 @@ public class TicketController {
 	 */
 	@ModelAttribute(value = "statuses")
 	public List<Status> statuses() {
-		return statusDAO.findAll();
+		return statusDAO.findAllEnabled();
 	}
 
 	/**

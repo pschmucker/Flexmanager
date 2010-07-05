@@ -92,4 +92,9 @@ public class ContactDAOImpl extends JPAGenericDAO<Contact, Long> implements Cont
 		q.setParameter("name", name);
 		return q.getResultList();
 	}
+
+	@Override
+	public List<Contact> findAllEnabled() {
+		return entityManager.createQuery("select c from Contact c where c.enabled = true", Contact.class).getResultList();
+	}
 }

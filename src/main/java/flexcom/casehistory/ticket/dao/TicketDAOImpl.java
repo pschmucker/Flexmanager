@@ -163,4 +163,9 @@ public class TicketDAOImpl extends JPAGenericDAO<Ticket, Long> implements Ticket
 	public long count() {
 		return entityManager.createNamedQuery("ticket.count", Long.class).getSingleResult();
 	}
+
+	@Override
+	public List<Ticket> findAllEnabled() {
+		return entityManager.createQuery("select t from Ticket t where t.enabled = true", Ticket.class).getResultList();
+	}
 }

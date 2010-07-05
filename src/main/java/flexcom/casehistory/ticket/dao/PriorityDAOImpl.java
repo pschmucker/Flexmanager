@@ -92,4 +92,9 @@ public class PriorityDAOImpl extends JPAGenericDAO<Priority, Long> implements Pr
 	public void updatePriority(Priority priority) {
 		update(priority);
 	}
+
+	@Override
+	public List<Priority> findAllEnabled() {
+		return entityManager.createQuery("select p from Priority p where p.enabled = true", Priority.class).getResultList();
+	}
 }

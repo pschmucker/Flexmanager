@@ -342,7 +342,7 @@ public class TicketControllerTest {
 	 */
 	@Test
 	public void testClients() {
-		Object[] clients = clientDAO.findAll().toArray();
+		Object[] clients = clientDAO.findAllEnabled().toArray();
 		assertArrayEquals(clients, controller.clients().toArray());
 	}
 
@@ -354,7 +354,7 @@ public class TicketControllerTest {
 	 */
 	@Test
 	public void testProducts() {
-		Object[] products = productDAO.findAll().toArray();
+		Object[] products = productDAO.findAllEnabled().toArray();
 		assertArrayEquals(products, controller.products().toArray());
 	}
 
@@ -366,7 +366,7 @@ public class TicketControllerTest {
 	 */
 	@Test
 	public void testContacts() {
-		Object[] contacts = contactDAO.findAll().toArray();
+		Object[] contacts = contactDAO.findAllEnabled().toArray();
 		assertArrayEquals(contacts, controller.contacts().toArray());
 	}
 
@@ -378,7 +378,7 @@ public class TicketControllerTest {
 	 */
 	@Test
 	public void testPriorities() {
-		Object[] priorities = priorityDAO.findAll().toArray();
+		Object[] priorities = priorityDAO.findAllEnabled().toArray();
 		assertArrayEquals(priorities, controller.priorities().toArray());
 	}
 
@@ -390,7 +390,7 @@ public class TicketControllerTest {
 	 */
 	@Test
 	public void testStatuses() {
-		Object[] statuses = statusDAO.findAll().toArray();
+		Object[] statuses = statusDAO.findAllEnabled().toArray();
 		assertArrayEquals(statuses, controller.statuses().toArray());
 	}
 

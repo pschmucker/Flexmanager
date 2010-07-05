@@ -2,6 +2,7 @@ package flexcom.casehistory.mvc.controller.test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -245,7 +246,7 @@ public class LicenceControllerTest {
 	 */
 	@Test
 	public void testClients() {
-		Object[] clients = clientDAO.findAll().toArray();
+		Object[] clients = clientDAO.findAllEnabled().toArray();
 		assertArrayEquals(controller.clients().toArray(), clients);
 	}
 
@@ -257,7 +258,7 @@ public class LicenceControllerTest {
 	 */
 	@Test
 	public void testProducts() {
-		Object[] products = productDAO.findAll().toArray();
+		Object[] products = productDAO.findAllEnabled().toArray();
 		assertArrayEquals(controller.products().toArray(), products);
 	}
 
@@ -314,8 +315,8 @@ public class LicenceControllerTest {
 	@Test
 	public void testDelete() {
 		String view = controller.delete(licenceId);
-
-		assertNull(licenceDAO.findById(licenceId));
+		Licence licence = licenceDAO.findById(licenceId);
+		assertFalse(licence.isEnabled());
 		assertEquals("redirect:/licence.html", view);
 	}
 
@@ -456,7 +457,7 @@ public class LicenceControllerTest {
 	 */
 	@Test
 	public void testMaintenances() {
-		Object[] maintenances = maintenanceDAO.findAll().toArray();
+		Object[] maintenances = maintenanceDAO.findAllEnabled().toArray();
 		assertArrayEquals(maintenances, controller.maintenances().toArray());
 	}
 

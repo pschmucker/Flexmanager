@@ -92,4 +92,9 @@ public class ClientDAOImpl extends JPAGenericDAO<Client, Long> implements Client
 	public long count() {
 		return entityManager.createNamedQuery("client.count", Long.class).getSingleResult();
 	}
+
+	@Override
+	public List<Client> findAllEnabled() {
+		return entityManager.createQuery("select c from Client c where c.enabled = true", Client.class).getResultList();
+	}
 }

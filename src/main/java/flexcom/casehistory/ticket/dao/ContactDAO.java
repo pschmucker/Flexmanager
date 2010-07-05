@@ -66,4 +66,11 @@ public interface ContactDAO {
 	 * @return A list containing all contacts with the given name
 	 */
 	public List<Contact> findByName(String name);
+
+	/**
+	 * Find all enabled contacts
+	 * 
+	 * @return A list containing all enabled contacts
+	 */
+	public List<Contact> findAllEnabled();
 }

@@ -76,5 +76,12 @@ public interface MaintenanceDAO {
 	 * @return The number of managed {@link Maintenance} entities
 	 */
 	public long count();
+	
+	/**
+	 * Find all enabled maintenances
+	 * 
+	 * @return A list containing all enabled maintenances
+	 */
+	public List<Maintenance> findAllEnabled();
 
 }

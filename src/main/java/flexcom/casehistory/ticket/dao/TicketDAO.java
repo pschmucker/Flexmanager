@@ -110,4 +110,10 @@ public interface TicketDAO {
 	 * @return The number of managed {@link Ticket} entities
 	 */
 	public long count();
+
+	/**
+	 * Find all enabled tickets
+	 * @return A list containing all enabled tickets
+	 */
+	public List<Ticket> findAllEnabled();
 }

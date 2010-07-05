@@ -75,4 +75,12 @@ public interface PartnerDAO {
 	 * @return The number of managed {@link Partner} entities
 	 */
 	public long count();
+
+	/**
+	 * Find all enabled partners
+	 * 
+	 * @return A list containing all enabled partners
+	 */
+	public List<Partner> findAllEnabled();
+	
 }

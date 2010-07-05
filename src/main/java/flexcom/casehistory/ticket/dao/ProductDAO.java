@@ -76,4 +76,12 @@ public interface ProductDAO {
 	 * @return The number of managed {@link Product} entities
 	 */
 	public long count();
+	
+	/**
+	 * Find all enabled products
+	 * 
+	 * @return A list containing all enabled products
+	 */
+	public List<Product> findAllEnabled();
+
 }

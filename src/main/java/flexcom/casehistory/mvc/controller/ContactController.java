@@ -73,8 +73,8 @@ public class ContactController {
 	@ModelAttribute(value = "companies")
 	public List<Company> companies() {
 		List<Company> companies = new ArrayList<Company>();
-		companies.addAll(clientDAO.findAll());
-		companies.addAll(partnerDAO.findAll());
+		companies.addAll(clientDAO.findAllEnabled());
+		companies.addAll(partnerDAO.findAllEnabled());
 		return companies;
 	}
 

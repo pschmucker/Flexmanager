@@ -76,5 +76,12 @@ public interface StatusDAO {
 	 * @return The number of managed {@link Status} entities
 	 */
 	public long count();
+	
+	/**
+	 * Find all enabled statuses
+	 * 
+	 * @return A list containing all enabled statuses
+	 */
+	public List<Status> findAllEnabled();
 
 }
