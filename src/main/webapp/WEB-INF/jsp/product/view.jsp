@@ -14,6 +14,7 @@
 		<div>
 			Name : ${product.name}<br/>
 			Version : ${product.version}<br/>
+			Description : ${product.description}<br/>
 		</div>
 
 		<br/>

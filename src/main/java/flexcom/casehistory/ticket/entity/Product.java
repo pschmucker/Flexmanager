@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -51,6 +52,8 @@ public class Product {
 	 * Product's version
 	 */
 	private String version;
+	
+	private String description;
 
 	/**
 	 * Set of tickets concerning this product
@@ -242,6 +245,15 @@ public class Product {
 		this.enabled = enabled;
 	}
 	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Lob
+	public String getDescription() {
+		return description;
+	}
+
 	/**
 	 * {@inheritDoc} Compare two products using their id
 	 */

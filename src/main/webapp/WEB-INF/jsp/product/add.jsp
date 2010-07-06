@@ -33,6 +33,13 @@
 						<form:input path="version"/>
 					</td>
 				</tr>
+				
+				<tr>
+					<td align="right" width="40%">Description :</td>
+					<td width="60%">
+						<form:textarea path="description"/>
+					</td>
+				</tr>
 			</table>
 			<br>
 			<input type="submit" value="Create">
