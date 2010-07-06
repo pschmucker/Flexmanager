@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.After;
@@ -22,7 +23,7 @@ import flexcom.casehistory.ticket.search.Query;
 import flexcom.casehistory.ticket.search.filter.AndFilter;
 import flexcom.casehistory.ticket.search.filter.EqualFilter;
 import flexcom.casehistory.ticket.search.filter.Filter;
-import flexcom.casehistory.ticket.search.filter.GreaterOrEqualFilter;
+import flexcom.casehistory.ticket.search.filter.LessOrEqualFilter;
 
 /**
  * Test class for {@link ProductDAOImpl}
@@ -70,13 +71,11 @@ public class ProductDAOImplTest {
 		product1 = new Product();
 		product1.setName("Photoshop");
 		product1.setVersion("CS5");
-		product1.setBuild("642");
 		productDAO.createProduct(product1);
 
 		product2 = new Product();
 		product2.setName("Useless");
 		product2.setVersion("0.0");
-		product2.setBuild("-");
 		productDAO.createProduct(product2);
 
 		productId1 = product1.getId();
@@ -122,7 +121,6 @@ public class ProductDAOImplTest {
 		Product p = new Product();
 		p.setName("p");
 		p.setVersion("1.0");
-		p.setBuild("1");
 		productDAO.createProduct(p);
 		assertEquals(count + 1, productDAO.count());
 	}
@@ -228,13 +226,13 @@ public class ProductDAOImplTest {
 		products = productDAO.filter(query);
 		assertEquals(2, products.size());
 
-		Filter filter = new AndFilter(new EqualFilter("name", "Photoshop"), new GreaterOrEqualFilter("version", "CS5"));
+		Filter filter = new AndFilter(new EqualFilter("name", "Photoshop"), new LessOrEqualFilter("creationDate", new Date()));
 		query.addFilter(filter);
 
 		products = productDAO.filter(query);
 		assertEquals(1, products.size());
 
-		query.addFilter(new EqualFilter("build", "910"));
+		query.addFilter(new EqualFilter("version", "CS3"));
 
 		products = productDAO.filter(query);
 		assertEquals(0, products.size());

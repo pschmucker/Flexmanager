@@ -19,13 +19,11 @@ public class ProductBootstrapper implements Bootstrapper {
 			Product product = new Product();
 			product.setName("Calltax");
 			product.setVersion("3.0");
-			product.setBuild("2635");
 			productDAO.createProduct(product);
 			
 			product = new Product();
 			product.setName("CaseHistory");
 			product.setVersion("0.1");
-			product.setBuild("328");
 			productDAO.createProduct(product);
 		}
 	}

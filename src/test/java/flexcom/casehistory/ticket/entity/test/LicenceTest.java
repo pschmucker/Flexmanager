@@ -89,7 +89,6 @@ public class LicenceTest {
 		Product p = new Product();
 		p.setName("p");
 		p.setVersion("1.0");
-		p.setBuild("1");
 		productDAO.createProduct(p);
 
 		licence = new Licence();

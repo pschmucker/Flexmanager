@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
@@ -26,7 +28,7 @@ import org.hibernate.validator.constraints.Length;
  *
  */
 @Entity
-@Table(name = "Licences")
+@Table(name = "Licences", uniqueConstraints = {@UniqueConstraint(columnNames = {"client", "product"})})
 @NamedQueries(value = { 
 	@NamedQuery(name = "licence.findById", query = "select l from Licence l where l.id = :id"),
 	@NamedQuery(name = "licence.findByLicenceKey", query = "select l from Licence l where l.licenceKey = :licenceKey"),
@@ -185,6 +187,7 @@ public class Licence {
 	 * Gets the licence owner
 	 * @return the client
 	 */
+	@JoinColumn(name = "client")
 	@ManyToOne
 	@NotNull
 	@Valid
@@ -204,6 +207,7 @@ public class Licence {
 	 * Gets the concerned {@link Product}
 	 * @return the product
 	 */
+	@JoinColumn(name = "product")
 	@ManyToOne
 	@NotNull
 	@Valid

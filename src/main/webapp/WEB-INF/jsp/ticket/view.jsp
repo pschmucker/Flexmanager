@@ -31,6 +31,7 @@
 		<h2>Product</h2>
 		<div>
 			Product : <a href="../product/view.html?id=${ticket.product.id}">${ticket.product.name} ${ticket.product.version}</a><br/>
+			Build : ${ticket.build}<br/>
 		</div>
 		<h2>Informations</h2>
 		<div>

@@ -18,7 +18,6 @@
 		    		<th>Id</th>
 		    		<th>Name</th>
 		    		<th>Version</th>
-		    		<th>Build</th>
 		    		<th>Enabled</th>
 				</tr>
 			    <c:forEach items="${list}" var="product">
@@ -26,7 +25,6 @@
 			    		<td><a href="product/view.html?id=${product.id}"><c:out value="${product.id}"/></a></td>
 			    		<td><a href="product/view.html?id=${product.id}"><c:out value="${product.name}"/></a></td>
 			    		<td><c:out value="${product.version}"/></td>
-			    		<td><c:out value="${product.build}"/></td>
 			    		<td><c:out value="${product.enabled}"/></td>
 			    		<td><a href="product/edit.html?id=${product.id}"><img border="0" src="<c:url value ="/img/Edit_16x16.png" />" /></a></td>
 			    		<td><input src="<c:url value ="/img/Delete_16x16.png" />" type="image" onclick="deleteObject('Are you sure you want to delete this product?', '${product}', 'product/delete.html?id=${product.id}')" /></td>

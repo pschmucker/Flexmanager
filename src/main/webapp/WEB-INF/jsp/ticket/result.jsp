@@ -21,6 +21,7 @@
 		    		<th>Priority</th>
 		    		<th>Client</th>
 		    		<th>Product</th>
+		    		<th>Build</th>
 		    		<th>Contact</th>
 				</tr>
 			    <c:forEach items="${result}" var="ticket">
@@ -32,6 +33,7 @@
 			    		<td><c:out value="${ticket.priority}"/></td>
 			    		<td><a href="../client/view.html?id=${ticket.client.id}"><c:out value="${ticket.client.name}"/></a></td>
 			    		<td><a href="../product/view.html?id=${ticket.product.id}"><c:out value="${ticket.product.name}"/></a></td>
+			    		<td><c:out value="${ticket.build}"/></td>
 			    		<td><a href="../contact/view.html?id=${ticket.contact.id}"><c:out value="${ticket.contact.name}"/></a></td>
 			    		<td><a href="edit.html?id=${ticket.id}">Edit</a></td>
 			    		<td><a href="delete.html?id=${ticket.id}">Delete</a></td>

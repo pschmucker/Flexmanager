@@ -29,12 +29,10 @@ public class ProductDataSet extends Data {
 			PRODUCT_1 = new Product();
 			PRODUCT_1.setName("P1");
 			PRODUCT_1.setVersion("1.0");
-			PRODUCT_1.setBuild("1");
 			productDAO.createProduct(PRODUCT_1);
 			PRODUCT_2 = new Product();
 			PRODUCT_2.setName("P2");
 			PRODUCT_2.setVersion("1.0");
-			PRODUCT_2.setBuild("1");
 			productDAO.createProduct(PRODUCT_2);
 		}
 	}

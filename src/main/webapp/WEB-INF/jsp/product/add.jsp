@@ -33,14 +33,6 @@
 						<form:input path="version"/>
 					</td>
 				</tr>
-				
-				<tr>
-					<td align="right" width="40%">Build :</td>
-					<td width="60%">
-						<form:input path="build"/>
-					</td>
-
-				</tr>
 			</table>
 			<br>
 			<input type="submit" value="Create">

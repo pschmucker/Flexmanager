@@ -52,7 +52,6 @@ public class ProductConstraintsTest {
 		product = new Product();
 		product.setName("Photoshop");
 		product.setVersion("CS5");
-		product.setBuild("642");
 	}
 
 	/**
@@ -74,13 +73,11 @@ public class ProductConstraintsTest {
 	public void testSetLoginUnique() {
 		product.setName("unique");
 		product.setVersion("unique");
-		product.setBuild("unique");
 		productDAO.createProduct(product);
 
 		Product copy = new Product();
 		copy.setName("unique");
 		copy.setVersion("unique");
-		copy.setBuild("unique");
 		productDAO.createProduct(copy);
 	}
 
@@ -146,36 +143,6 @@ public class ProductConstraintsTest {
 
 	/**
 	 * Test if a {@link ConstraintViolationException} is thrown when we create a
-	 * {@link Product} with a <code>null</code> build
-	 */
-	@Test(expected = ConstraintViolationException.class)
-	public void testSetBuildNull() {
-		product.setBuild(null);
-		productDAO.createProduct(product);
-	}
-
-	/**
-	 * Test if a {@link ConstraintViolationException} is thrown when we create a
-	 * {@link Product} with an empty build
-	 */
-	@Test(expected = ConstraintViolationException.class)
-	public void testSetEmptyBuild() {
-		product.setBuild("");
-		productDAO.createProduct(product);
-	}
-
-	/**
-	 * Test if a {@link ConstraintViolationException} is thrown when we create a
-	 * {@link Product} with a too long build
-	 */
-	@Test(expected = ConstraintViolationException.class)
-	public void testSetBuild() {
-		product.setBuild("Too much complicated build");
-		productDAO.createProduct(product);
-	}
-
-	/**
-	 * Test if a {@link ConstraintViolationException} is thrown when we create a
 	 * {@link Product} whose creation date is <code>null</code>
 	 */
 	@Test(expected = ConstraintViolationException.class)
@@ -197,7 +164,6 @@ public class ProductConstraintsTest {
 		Product product = new Product();
 		product.setName("p");
 		product.setVersion("1.0");
-		product.setBuild("1");
 
 		Thread.sleep(1000);
 		Date after = new Date();

@@ -71,6 +71,14 @@
 				</tr>
 				
 				<tr>
+					<td align="right" width="40%">Build :</td>
+					<td width="60%">
+						<form:input path="build"/>
+					</td>
+
+				</tr>
+				
+				<tr>
 					<td align="right" width="40%">Contact :</td>
 					<td width="60%">
 						<form:select path="contact">

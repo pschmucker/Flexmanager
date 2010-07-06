@@ -68,7 +68,7 @@ public class LicenceDataSet extends Data {
 			LICENCE_2 = new Licence();
 			LICENCE_2.setLicenceKey("key");
 			LICENCE_2.setClient(CLIENT_1);
-			LICENCE_2.setProduct(PRODUCT_1);
+			LICENCE_2.setProduct(PRODUCT_2);
 			LICENCE_2.setMaintenance(MAINTENANCE_NONE);
 			licenceDAO.createLicence(LICENCE_2);
 		}

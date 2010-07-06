@@ -14,7 +14,6 @@
 		<div>
 			Name : ${product.name}<br/>
 			Version : ${product.version}<br/>
-			Build : ${product.build}<br/>
 		</div>
 
 		<br/>

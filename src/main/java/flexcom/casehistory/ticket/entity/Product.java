@@ -29,7 +29,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * 
  */
 @Entity
-@Table(name = "Products", uniqueConstraints = {@UniqueConstraint(columnNames = {"name", "version", "build"})})
+@Table(name = "Products", uniqueConstraints = {@UniqueConstraint(columnNames = {"name", "version"})})
 @NamedQueries(value = { 
 	@NamedQuery(name = "product.findById", query = "select p from Product p where p.id = :id"),
 	@NamedQuery(name = "product.findByName", query = "select p from Product p where p.name = :name"),
@@ -51,11 +51,6 @@ public class Product {
 	 * Product's version
 	 */
 	private String version;
-
-	/**
-	 * Product's build
-	 */
-	private String build;
 
 	/**
 	 * Set of tickets concerning this product
@@ -155,29 +150,6 @@ public class Product {
 	 */
 	public void setVersion(String version) {
 		this.version = version;
-	}
-
-	/**
-	 * Gets the build
-	 * 
-	 * @return The product's build
-	 */
-	@Column(length = 20, nullable = false)
-	@NotEmpty
-	@Length(max = 20)
-	@NotNull
-	public String getBuild() {
-		return build;
-	}
-
-	/**
-	 * Sets the build
-	 * 
-	 * @param build
-	 *            The product's build
-	 */
-	public void setBuild(String build) {
-		this.build = build;
 	}
 
 	/**

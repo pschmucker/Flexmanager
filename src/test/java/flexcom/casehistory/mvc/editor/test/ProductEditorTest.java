@@ -57,7 +57,6 @@ public class ProductEditorTest {
 		product = new Product();
 		product.setName("p");
 		product.setVersion("1.0");
-		product.setBuild("1");
 		productDAO.createProduct(product);
 		productId = product.getId();
 	}

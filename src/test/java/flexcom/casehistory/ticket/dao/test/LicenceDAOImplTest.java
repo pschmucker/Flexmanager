@@ -71,8 +71,8 @@ public class LicenceDAOImplTest {
 
 		Licence l = new Licence();
 		l.setLicenceKey("k");
-		l.setClient(Data.CLIENT_1);
-		l.setProduct(Data.PRODUCT_1);
+		l.setClient(Data.CLIENT_2);
+		l.setProduct(Data.PRODUCT_2);
 		l.setMaintenance(Data.MAINTENANCE_FULL);
 		
 		licenceDAO.createLicence(l);

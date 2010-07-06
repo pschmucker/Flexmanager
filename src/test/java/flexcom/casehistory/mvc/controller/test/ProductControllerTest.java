@@ -92,7 +92,6 @@ public class ProductControllerTest {
 		product = new Product();
 		product.setName("product");
 		product.setVersion("1.0");
-		product.setBuild("1");
 
 		productDAO.createProduct(product);
 
@@ -201,7 +200,6 @@ public class ProductControllerTest {
 
 		p.setName("p");
 		p.setVersion("1.0");
-		p.setBuild("1");
 		String view = controller.create(p, new MapBindingResult(Collections.emptyMap(), ""));
 		long id = p.getId();
 

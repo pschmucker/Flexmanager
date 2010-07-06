@@ -45,7 +45,6 @@ public class ProductTest {
 		product = new Product();
 		product.setName("Photoshop");
 		product.setVersion("CS5");
-		product.setBuild("20100531");
 
 		productDAO.createProduct(product);
 	}

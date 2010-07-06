@@ -21,6 +21,7 @@
 		    		<th>Priority</th>
 		    		<th>Client</th>
 		    		<th>Product</th>
+		    		<th>Build</th>
 		    		<th>Users</th>
 		    		<th>Enabled</th>
 				</tr>
@@ -33,6 +34,7 @@
 			    		<td><c:out value="${ticket.priority}"/></td>
 			    		<td><a href="client/view.html?id=${ticket.client.id}"><c:out value="${ticket.client.name}"/></a></td>
 			    		<td><a href="product/view.html?id=${ticket.product.id}"><c:out value="${ticket.product.name}"/></a></td>
+			    		<td><c:out value="${ticket.build}"/></td>
 			    		<td><c:out value="${ticket.usersInCharge}"/></td>
 			    		<td><c:out value="${ticket.enabled}"/></td>
 			    		<td><a href="ticket/edit.html?id=${ticket.id}"><img border="0" src="<c:url value ="/img/Edit_16x16.png" />" /></a></td>

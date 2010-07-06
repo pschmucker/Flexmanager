@@ -221,8 +221,8 @@ public class LicenceControllerTest {
 		Thread.sleep(1000);
 		Date before = new Date();
 		l.setLicenceKey("lk");
-		l.setClient(Data.CLIENT_1);
-		l.setProduct(Data.PRODUCT_1);
+		l.setClient(Data.CLIENT_2);
+		l.setProduct(Data.PRODUCT_2);
 		l.setMaintenance(Data.MAINTENANCE_FULL);
 		String view = controller.create(l, new MapBindingResult(Collections.emptyMap(), ""));
 		Date after = new Date();

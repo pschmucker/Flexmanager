@@ -110,6 +110,11 @@ public class Ticket {
 	private Contact contact;
 	
 	private boolean enabled;
+	
+	/**
+	 * Product's build
+	 */
+	private String build;
 
 	/**
 	 * Constructor without argument. The following initializations are done :<br/>
@@ -429,5 +434,15 @@ public class Ticket {
 	
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public void setBuild(String build) {
+		this.build = build;
+	}
+
+	@Column(length = 20)
+	@Length(max = 20)
+	public String getBuild() {
+		return build;
 	}
 }

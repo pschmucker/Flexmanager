@@ -64,7 +64,6 @@ public class TicketCreationTest {
 		Product product = new Product();
 		product.setName("TestProduct");
 		product.setVersion("0.0");
-		product.setBuild("none");
 
 		productDAO.createProduct(product);
 
