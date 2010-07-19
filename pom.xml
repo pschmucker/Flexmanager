@@ -6,14 +6,19 @@
 	<packaging>war</packaging>
 	<name>CaseHistory</name>
 	<properties>
-		<junit.version>4.5</junit.version>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<junit.version>4.7</junit.version>
 		<hibernate.entitymanager.version>3.5.1-Final</hibernate.entitymanager.version>
 		<hibernate.validator.version>4.0.2.GA</hibernate.validator.version>
 		<commons.dbcp.version>1.2.2</commons.dbcp.version>
+		<commons.fileupload.version>1.2.1</commons.fileupload.version>
 		<hsqldb.version>1.8.0.10</hsqldb.version>
-		<spring.version>3.0.2.RELEASE</spring.version>
+		<spring.version>3.0.3.RELEASE</spring.version>
 		<log4j.version>1.2.14</log4j.version>
 		<slf4j.version>1.6.0</slf4j.version>
+		<gwt.version>2.0.4</gwt.version>
+		<taglibs.version>1.1.2</taglibs.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -43,6 +48,11 @@
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>${commons.dbcp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons.fileupload.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>hsqldb</groupId>
@@ -90,6 +100,16 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
@@ -104,14 +124,47 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>${taglibs.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
+		<outputDirectory>war/WEB-INF/classes</outputDirectory>
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<useCache>false</useCache>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
 		</plugins>
