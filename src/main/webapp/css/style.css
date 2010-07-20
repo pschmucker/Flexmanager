@@ -1,0 +1,26 @@
+#menu {
+	padding:0;
+	margin:0;
+	list-style-type:none;
+}
+
+#menu li {
+	border-left:1px solid black;
+}
+
+#menu li a {
+	display:inline;
+	float:left;   
+	width:100px;
+	line-height:30px;
+	background: -moz-linear-gradient(#C0C0C0, #000000, #C0C0C0);
+	color:#DCDCDC;
+	text-decoration:none;
+	text-align:center;
+}
+
+#menu li a:hover {
+	background: -moz-linear-gradient(#CCCCCC, #111111, #CCCCCC);
+	color:white;
+}  
+

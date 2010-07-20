@@ -6,26 +6,15 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Result</title>
+		<script type="text/javascript" src="<c:url value ="/js/script.js" />"></script>
 	</head>
 	<body>
 	
 		<h1>Partners found</h1>
 		${fn:length(result)} result<c:if test="${fn:length(result) > 1}">s</c:if> found :
+		<c:set var="list" value="${result}" />
 		<div>
-			<table border="2" cellspacing="2" cellpadding="5">
-				<tr>
-		    		<th>Id</th>
-		    		<th>Company</th>
-				</tr>
-			    <c:forEach items="${result}" var="partner">
-			    	<tr>
-			    		<td><a href="view.html?id=${partner.id}"><c:out value="${partner.id}"/></a></td>
-			    		<td><a href="view.html?id=${partner.id}"><c:out value="${partner.name}"/></a></td>
-			    		<td><a href="edit.html?id=${partner.id}">Edit</a></td>
-			    		<td><a href="delete.html?id=${partner.id}">Delete</a></td>
-			    	</tr>
-			    </c:forEach>
-			</table>
+			<%@ include file="list.jsp"%>
 	    </div>
 	
 	    <br/>

@@ -5,21 +5,26 @@
 <html>
 	<head>
 		<title>Spring Application</title>
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
 	<body>
 		<h1>Welcome !</h1>
 		<div>
-			<a href="partner.html">Partner</a><br/>
-			<a href="client.html">Client</a><br/>
-			<a href="product.html">Product</a><br/>
-			<a href="licence.html">Licence</a><br/>
-			<a href="contact.html">Contact</a><br/>
-			<a href="ticket.html">Ticket</a><br/>
-			<a href="user.html">User</a><br/>
+			<ul id="menu">
+				<li><a href="partner.html">Partner</a></li>
+				<li><a href="client.html">Client</a></li>
+				<li><a href="product.html">Product</a></li>
+				<li><a href="licence.html">Licence</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="ticket.html">Ticket</a></li>
+				<li><a href="user.html">User</a></li>
+			</ul>
 		</div>
-		<br/>
-		<a href="j_spring_security_logout">Déconnexion</a>
-		<br/><br/><br/>
-		<a href="index.html?bootstrap=true">Bootstrap</a>
+		<div>
+			<br/><br/><br/>
+			<a href="j_spring_security_logout">Déconnexion</a>
+			<br/>
+			<a href="index.html?bootstrap=true">Bootstrap</a>
+		</div>
 	</body>
 </html>

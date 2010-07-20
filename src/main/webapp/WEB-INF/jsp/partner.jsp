@@ -12,22 +12,7 @@
 	
 		<h1>Partner list</h1>
 		<div>
-			<table border="2" cellspacing="2" cellpadding="5">
-				<tr>
-		    		<th>Id</th>
-		    		<th>Company</th>
-		    		<th>Enabled</th>
-				</tr>
-			    <c:forEach items="${list}" var="partner">
-			    	<tr>
-			    		<td><a href="partner/view.html?id=${partner.id}"><c:out value="${partner.id}"/></a></td>
-			    		<td><a href="partner/view.html?id=${partner.id}"><c:out value="${partner.name}"/></a></td>
-			    		<td><c:out value="${partner.enabled}"/></td>
-			    		<td><a href="partner/edit.html?id=${partner.id}" ><img border="0" src="<c:url value ="/img/Edit_16x16.png" />" /></a></td>
-			    		<td><input src="<c:url value ="/img/Delete_16x16.png" />" type="image" onclick="deleteObject('Are you sure you want to delete this partner?', '${partner}', 'partner/delete.html?id=${partner.id}')" /></td>
-			    	</tr>
-			    </c:forEach>
-			</table>
+			<jsp:include page="partner/list.jsp" />
 	    </div>
 	    <br/>
 	    <a href="partner/add.html">Add new partner</a>
