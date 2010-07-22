@@ -12,8 +12,12 @@
 				font-style: bold;
 			}
 		</style> 
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
 	<body>
+		<div class="header">
+			<jsp:include page="../menu.jsp" />
+	    </div>
 		<form:form modelAttribute="contact">
 		
 			<form:errors path="*" cssClass="error"/>

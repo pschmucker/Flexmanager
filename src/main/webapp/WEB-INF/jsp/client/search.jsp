@@ -6,9 +6,13 @@
 <html>
 	<head>
 		<title>Client</title>
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
 	<body>
 
+		<div class="header">
+			<jsp:include page="../menu.jsp" />
+	    </div>
 		<h1>Client - Search page</h1>
 	
 		<form:form modelAttribute="companyQuery">

@@ -1,4 +1,10 @@
+body {
+	margin:0;
+}
+
 #menu {
+	height:30px;
+	background: -moz-linear-gradient(#C0C0C0, #000000, #C0C0C0);
 	padding:0;
 	margin:0;
 	list-style-type:none;

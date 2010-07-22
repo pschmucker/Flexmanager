@@ -7,9 +7,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Ticket detail</title>
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
 	<body>
 
+		<div class="header">
+			<jsp:include page="../menu.jsp" />
+	    </div>
 		<h1>Ticket #<c:out value="${ticket.id}"/> - <c:out value="${ticket.title}"/></h1>
 	
 		<div align="right">

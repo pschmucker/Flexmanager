@@ -6,9 +6,13 @@
 <html>
 	<head>
 		<title>Licence detail</title>
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
 	<body>
 
+		<div class="header">
+			<jsp:include page="../menu.jsp" />
+	    </div>
 		<h1>Licence #<c:out value="${licence.id}"/> - <c:out value="${licence.licenceKey}"/></h1>
 	
 		<div>

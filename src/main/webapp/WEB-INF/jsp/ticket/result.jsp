@@ -6,9 +6,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Result</title>
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
 	<body>
 	
+		<div class="header">
+			<jsp:include page="../menu.jsp" />
+	    </div>
 		<h1>Tickets found</h1>
 		${fn:length(result)} result<c:if test="${fn:length(result) > 1}">s</c:if> found :
 		<div>

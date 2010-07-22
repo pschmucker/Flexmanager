@@ -7,10 +7,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Partners</title>
 		<script type="text/javascript" src="<c:url value ="/js/script.js" />"></script>
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
 	<body>
 	
-		<h1>Partner list</h1>
+		<div class="header">
+			<jsp:include page="menu.jsp" />
+	    </div>
+	    
+	    <br><br>
+	    
 		<div>
 			<jsp:include page="partner/list.jsp" />
 	    </div>
