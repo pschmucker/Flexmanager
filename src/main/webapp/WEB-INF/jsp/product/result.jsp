@@ -7,6 +7,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Result</title>
 		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
+		<script type="text/javascript" src="<c:url value ="/js/script.js" />"></script>
 	</head>
 	<body>
 	
@@ -15,25 +16,9 @@
 	    </div>
 		<h1>Products found</h1>
 		${fn:length(result)} result<c:if test="${fn:length(result) > 1}">s</c:if> found :
+		<c:set var="list" value="${result}" />
 		<div>
-			<table border="2" cellspacing="2" cellpadding="5">
-				<tr>
-		    		<th>Id</th>
-		    		<th>Name</th>
-		    		<th>Version</th>
-		    		<th>Description</th>
-				</tr>
-			    <c:forEach items="${result}" var="product">
-			    	<tr>
-			    		<td><a href="view.html?id=${product.id}"><c:out value="${product.id}"/></a></td>
-			    		<td><a href="view.html?id=${product.id}"><c:out value="${product.name}"/></a></td>
-			    		<td><c:out value="${product.version}"/></td>
-			    		<td><c:out value="${product.description}"/></td>
-			    		<td><a href="edit.html?id=${product.id}">Edit</a></td>
-			    		<td><a href="delete.html?id=${product.id}">Delete</a></td>
-			    	</tr>
-			    </c:forEach>
-			</table>
+			<%@ include file="list.jsp"%>
 	    </div>
 	
 	    <br/>

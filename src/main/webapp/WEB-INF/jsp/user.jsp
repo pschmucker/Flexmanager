@@ -15,24 +15,7 @@
 			<jsp:include page="menu.jsp" />
 	    </div>
 		<div>
-			<table border="2" cellspacing="2" cellpadding="5">
-				<tr>
-		    		<th>Id</th>
-		    		<th>Login</th>
-		    		<th>Name</th>
-		    		<th>Enabled</th>
-				</tr>
-			    <c:forEach items="${list}" var="user">
-			    	<tr>
-			    		<td><a href="user/view.html?id=${user.id}"><c:out value="${user.id}"/></a></td>
-			    		<td><a href="user/view.html?id=${user.id}"><c:out value="${user.login}"/></a></td>
-			    		<td><c:out value="${user.name}"/></td>
-			    		<td><c:out value="${user.enabled}"/></td>
-			    		<td><a href="user/edit.html?id=${user.id}"><img border="0" src="<c:url value ="/img/Edit_16x16.png" />" /></a></td>
-			    		<td><input src="<c:url value ="/img/Delete_16x16.png" />" type="image" onclick="deleteObject('Are you sure you want to delete this user?', '${user}', 'user/delete.html?id=${user.id}')" /></td>
-			    	</tr>
-			    </c:forEach>
-			</table>
+			<%@ include file="user/list.jsp"%>
 	    </div>
 	    <br/>
 	    <a href="user/add.html">Add new user</a>
