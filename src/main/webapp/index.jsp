@@ -5,17 +5,6 @@
 <html>
 	<head>
 		<title>Spring Application</title>
-		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
+		<meta http-equiv="Refresh" content="0;url=home.html">
 	</head>
-	<body>
-		<div id="header">
-			<%@ include file="WEB-INF/jsp/menu.jsp"%>
-		</div>
-		<div>
-			<br/><br/>
-			<a href="j_spring_security_logout">Déconnexion</a>
-			<br/>
-			<a href="index.html?bootstrap=true">Bootstrap</a>
-		</div>
-	</body>
 </html>

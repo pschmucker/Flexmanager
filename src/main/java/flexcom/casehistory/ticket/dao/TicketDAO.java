@@ -116,4 +116,6 @@ public interface TicketDAO {
 	 * @return A list containing all enabled tickets
 	 */
 	public List<Ticket> findAllEnabled();
+	
+	public List<Ticket> last(int amount);
 }

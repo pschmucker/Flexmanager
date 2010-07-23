@@ -2,11 +2,11 @@ package flexcom.casehistory.mvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import flexcom.casehistory.bootstrap.DatabaseBootstrapper;
+import flexcom.casehistory.ticket.dao.TicketDAO;
 
 /**
  * 
@@ -16,22 +16,28 @@ import flexcom.casehistory.bootstrap.DatabaseBootstrapper;
  * 
  */
 @Controller
-public class BootstrapController {
+public class HomeController {
 
 	/**
 	 * Database bootstrapper
 	 */
 	@Autowired
 	private DatabaseBootstrapper bootstrapper;
+	
+	@Autowired
+	private TicketDAO ticketDAO;
+
+	@RequestMapping(value = "home")
+	public void home(Model m) {
+		m.addAttribute("last", ticketDAO.last(10));
+	}
 
 	/**
 	 * Bootstrap the database
 	 */
-	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public String bootstrap(@RequestParam(required = false, value = "bootstrap") boolean bootstrap) {
-		if (bootstrap){
-			bootstrapper.bootstrap();
-		}
+	@RequestMapping(value = "index/bootstrap")
+	public String bootstrap() {
+		bootstrapper.bootstrap();
 		return "redirect:/";
 	}
 

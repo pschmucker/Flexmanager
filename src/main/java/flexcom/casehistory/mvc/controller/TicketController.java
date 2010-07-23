@@ -326,7 +326,7 @@ public class TicketController {
 	 *            The request parameter "id" for the {@link Ticket}
 	 * @return The view which will be display
 	 */
-	@RequestMapping(value = "ticket/delete")
+	@RequestMapping(value = "ticket/delete", method = RequestMethod.GET)
 	public String delete(@RequestParam(required = true, value = "id") long ticketId) {
 		Ticket ticket = ticketDAO.findById(ticketId);
 		for (User u : ticket.getUsersInCharge()){

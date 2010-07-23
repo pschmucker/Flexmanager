@@ -168,4 +168,11 @@ public class TicketDAOImpl extends JPAGenericDAO<Ticket, Long> implements Ticket
 	public List<Ticket> findAllEnabled() {
 		return entityManager.createQuery("select t from Ticket t where t.enabled = true", Ticket.class).getResultList();
 	}
+
+	@Override
+	public List<Ticket> last(int amount) {
+		TypedQuery<Ticket> q = entityManager.createQuery("from Ticket t order by t.creationDate desc", Ticket.class);
+		q.setMaxResults(amount);
+		return q.getResultList();
+	}
 }
