@@ -2,21 +2,39 @@
 
 <table border="2" cellspacing="2" cellpadding="5">
 	<tr>
-		<th>Id</th>
 		<th>Company</th>
+		<th>Address</th>
+		<th>Country</th>
+		<th>Creation date</th>
+		<th>Last update</th>
+		<th>Contacts</th>
+		<th>Clients</th>
 		<th>Enabled</th>
 	</tr>
 	<c:forEach items="${list}" var="partner">
 		<tr>
 			<td>
 				<a href="<c:url value ="/partner/view.html?id=${partner.id}" />">
-					<c:out value="${partner.id}"/>
+					<c:out value="${partner.name}"/>
 				</a>
 			</td>
 			<td>
-				<a href="<c:url value ="/partner/view.html?id=${partner.id}" />">
-					<c:out value="${partner.name}"/>
-				</a>
+				<c:out value="${partner.address}"/>
+			</td>
+			<td>
+				<c:out value="${partner.country}"/>
+			</td>
+			<td>
+				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${partner.creationDate}"/>
+			</td>
+			<td>
+				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${partner.lastUpdate}"/>
+			</td>
+			<td>
+				<c:out value="${partner.contacts}"/>
+			</td>
+			<td>
+				<c:out value="${partner.clients}"/>
 			</td>
 			<td>
 				<c:out value="${partner.enabled}"/>
