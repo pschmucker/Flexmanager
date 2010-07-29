@@ -197,6 +197,12 @@ public class TicketController {
 		m.addAttribute("note", n);
 	}
 
+	@RequestMapping(value = "ticket/events")
+	public void events(Model m, @RequestParam(required = true, value = "id") long ticketId) {
+		Ticket ticket = ticketDAO.findById(ticketId);
+		m.addAttribute("events", eventDAO.findByTicket(ticket));
+	}
+
 	/**
 	 * Add a new {@link Ticket} object to the model
 	 * 

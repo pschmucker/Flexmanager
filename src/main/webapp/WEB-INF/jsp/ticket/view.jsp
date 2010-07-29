@@ -90,25 +90,10 @@
 			<br><br>
 			<input type="submit" value="Add note">
 		</form:form>
+		
+		<br/>
+		<a href="events.html?id=${ticket.id}">History</a><br/>
 	    
-		<h2>History</h2>
-		<div>
-			<table border="2" cellspacing="2" cellpadding="5">
-				<tr>
-		    		<th>Date</th>
-		    		<th>Operation</th>
-		    		<th>Author</th>
-				</tr>
-			    <c:forEach items="${events}" var="event">
-			    	<tr>
-			    		<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${event.date}"/></td>
-			    		<td><c:out value="${event.action}"/></td>
-			    		<td><a href="../user/view.html?id=${event.author.id}"><c:out value="${event.author.name}"/></a></td>
-			    	</tr>
-			    </c:forEach>
-			</table>
-	    </div>
-
 		<br/>
 		<a href="../ticket.html">Ticket page</a><br/>
 		<a href="../index.html">Home page</a><br/>
