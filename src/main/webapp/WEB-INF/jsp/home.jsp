@@ -19,6 +19,17 @@
 				<%@ include file="ticket/list.jsp"%>
 		    </div>
 
+			<h1>Urgent tickets</h1>
+			<c:set var="list" value="${urgent}" />
+			<div>
+				<%@ include file="ticket/list.jsp"%>
+		    </div>
+
+			<h1>Unassigned tickets</h1>
+			<c:set var="list" value="${unassigned}" />
+			<div>
+				<%@ include file="ticket/list.jsp"%>
+		    </div>
 			<br/>
 			<a href="j_spring_security_logout">Déconnexion</a>
 			<br/>
