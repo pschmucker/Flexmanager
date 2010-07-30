@@ -49,9 +49,5 @@
 			<input type="submit" value="Search">
 		</form:form>
 
-		<br/>
-		<a href="../user.html">User page</a><br/>
-		<a href="../index.html">Home page</a><br/>
-
 	</body>
 </html>
