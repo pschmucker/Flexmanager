@@ -15,16 +15,8 @@
 			<jsp:include page="menu.jsp" />
 	    </div>
 		<div>
-			<%@ include file="user/list.jsp"%>
+			<jsp:include page="user/list.jsp" />
 	    </div>
-	    <br/>
-	    <a href="user/add.html">Add new user</a>
-	
-	    <br/>
-	    <a href="user/search.html">Search user</a>
-	
-	    <br/>
-	    <a href="index.html">Home</a>
 	
 	</body>
 </html>

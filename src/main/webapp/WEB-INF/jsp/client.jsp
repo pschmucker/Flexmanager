@@ -15,16 +15,8 @@
 			<jsp:include page="menu.jsp" />
 	    </div>
 		<div>
-			<%@ include file="client/list.jsp"%>
+			<jsp:include page="client/list.jsp" />
 	    </div>
-	    <br/>
-	    <a href="client/add.html">Add new client</a>
-	
-	    <br/>
-	    <a href="client/search.html">Search client</a>
-	
-	    <br/>
-	    <a href="index.html">Home</a>
 	
 	</body>
 </html>

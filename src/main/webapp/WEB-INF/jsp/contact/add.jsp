@@ -41,7 +41,6 @@
 			</table>
 			<br>
 			<input type="submit" value="Create">
-			<input type="button" value="Cancel" onclick="history.go(-1)">
 		</form:form>
 	
 	</body>

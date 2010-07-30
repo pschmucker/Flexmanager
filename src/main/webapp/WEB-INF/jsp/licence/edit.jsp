@@ -54,7 +54,6 @@
 			<form:hidden path="product"/>
 			
 			<input type="submit" value="Update">
-			<input type="button" value="Cancel" onclick="history.go(-1)">
 		</form:form>
 	
 	</body>

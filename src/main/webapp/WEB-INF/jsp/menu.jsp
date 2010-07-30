@@ -2,6 +2,9 @@
 
 <ul id="menu">
 	<li>
+		<a href="<c:url value ="/home.html" />">Home</a>
+	</li>
+	<li>
 		<a href="<c:url value ="/partner.html" />">Partner</a>
 		<ul class="submenu">
 			<li><a href="<c:url value="/partner/add.html" />">Add</a></li>

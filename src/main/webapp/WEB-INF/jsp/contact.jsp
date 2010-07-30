@@ -15,16 +15,8 @@
 			<jsp:include page="menu.jsp" />
 	    </div>
 		<div>
-			<%@ include file="contact/list.jsp"%>
+			<jsp:include page="contact/list.jsp" />
 	    </div>
-	    <br/>
-	    <a href="contact/add.html">Add new contact</a>
-	
-	    <br/>
-	    <a href="contact/search.html">Search contact</a>
-	
-	    <br/>
-	    <a href="index.html">Home</a>
 	
 	</body>
 </html>

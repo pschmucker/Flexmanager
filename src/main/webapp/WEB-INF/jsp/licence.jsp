@@ -15,16 +15,8 @@
 			<jsp:include page="menu.jsp" />
 	    </div>
 		<div>
-			<%@ include file="licence/list.jsp"%>
+			<jsp:include page="licence/list.jsp" />
 	    </div>
-	    <br/>
-	    <a href="licence/add.html">Add new licence</a>
-	
-	    <br/>
-	    <a href="licence/search.html">Search licence</a>
-	
-	    <br/>
-	    <a href="index.html">Home</a>
 	    
 	</body>
 </html>

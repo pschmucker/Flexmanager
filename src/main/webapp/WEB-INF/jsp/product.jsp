@@ -16,16 +16,8 @@
 			<jsp:include page="menu.jsp" />
 	    </div>
 		<div>
-			<%@ include file="product/list.jsp"%>
+			<jsp:include page="product/list.jsp" />
 	    </div>
-	    <br/>
-	    <a href="product/add.html">Add new product</a>
-	
-	    <br/>
-	    <a href="product/search.html">Search product</a>
-	
-	    <br/>
-	    <a href="index.html">Home</a>
 	
 	</body>
 </html>

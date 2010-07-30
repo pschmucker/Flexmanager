@@ -14,20 +14,9 @@
 		<div class="header">
 			<jsp:include page="menu.jsp" />
 	    </div>
-	    
-	    <br><br>
-	    
 		<div>
 			<jsp:include page="partner/list.jsp" />
 	    </div>
-	    <br/>
-	    <a href="partner/add.html">Add new partner</a>
-	
-	    <br/>
-	    <a href="partner/search.html">Search partner</a>
-	
-	    <br/>
-	    <a href="index.html">Home</a>
 	
 	</body>
 </html>
