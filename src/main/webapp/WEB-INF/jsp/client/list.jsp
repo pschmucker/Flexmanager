@@ -14,7 +14,7 @@
 		<th>Enabled</th>
 	</tr>
 	<c:forEach items="${list}" var="client">
-		<tr>
+		<tr class="entity">
 			<td>
 				<a href="<c:url value ="/client/view.html?id=${client.id}" />">
 					<c:out value="${client.name}"/>

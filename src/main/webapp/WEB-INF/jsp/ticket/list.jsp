@@ -17,7 +17,7 @@
 		<th>Enabled</th>
 	</tr>
 	<c:forEach items="${list}" var="ticket">
-		<tr>
+		<tr class="entity">
 			<td>
 				<a href="<c:url value="/ticket/view.html?id=${ticket.id}" />">
 					<c:out value="${ticket.id}"/>
@@ -67,7 +67,7 @@
 			</td>
 			<td>
 				<a href="<c:url value="/ticket/edit.html?id=${ticket.id}" />">
-					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" />
+					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
 				</a>
 			</td>
 			<c:set var="path" value="<%=request.getContextPath() %>" />
@@ -76,6 +76,7 @@
 				<input 
 					src="<c:url 
 					value ="/img/Delete_16x16.png" />" 
+					alt="delete" 
 					type="image" 
 					onclick="deleteObject('Are you sure you want to delete this ticket?', '${ticket}', '${action}')" 
 				/>

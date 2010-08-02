@@ -8,7 +8,7 @@
 		<th>Enabled</th>
 	</tr>
 	<c:forEach items="${list}" var="contact">
-		<tr>
+		<tr class="entity">
 			<td>
 				<a href="<c:url value ="/contact/view.html?id=${contact.id}" />">
 					<c:out value="${contact.name}"/>

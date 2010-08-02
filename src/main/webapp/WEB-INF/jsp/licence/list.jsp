@@ -12,7 +12,7 @@
 		<th>Enabled</th>
 	</tr>
 	<c:forEach items="${list}" var="licence">
-		<tr>
+		<tr class="entity">
 			<td>
 				<a href="<c:url value ="/licence/view.html?id=${licence.id}" />">
 					<c:out value="${licence.licenceKey}"/>

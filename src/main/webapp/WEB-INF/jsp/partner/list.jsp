@@ -12,7 +12,7 @@
 		<th>Enabled</th>
 	</tr>
 	<c:forEach items="${list}" var="partner">
-		<tr>
+		<tr class="entity">
 			<td>
 				<a href="<c:url value ="/partner/view.html?id=${partner.id}" />">
 					<c:out value="${partner.name}"/>

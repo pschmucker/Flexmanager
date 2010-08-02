@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<title>Spring Application</title>
-		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />" />
 		<script type="text/javascript" src="<c:url value ="/js/script.js" />"></script>
 	</head>
 	<body>
@@ -30,8 +30,6 @@
 			<div>
 				<%@ include file="ticket/list.jsp"%>
 		    </div>
-			<br/>
-			<a href="j_spring_security_logout">Déconnexion</a>
 			<br/>
 			<a href="index/bootstrap.html">Bootstrap</a>
 		</div>
