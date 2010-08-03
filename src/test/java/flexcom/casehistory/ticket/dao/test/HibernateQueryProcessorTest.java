@@ -1,4 +1,4 @@
-package flexcom.casehistory.ticket.search.test;
+package flexcom.casehistory.ticket.dao.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -14,9 +14,9 @@ import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import flexcom.casehistory.ticket.dao.HibernateQueryProcessor;
 import flexcom.casehistory.ticket.dao.UserDAO;
 import flexcom.casehistory.ticket.entity.User;
-import flexcom.casehistory.ticket.search.HibernateQueryProcessor;
 import flexcom.casehistory.ticket.search.Query;
 import flexcom.casehistory.ticket.search.QueryProcessor;
 import flexcom.casehistory.ticket.search.filter.EqualFilter;

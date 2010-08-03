@@ -8,7 +8,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses(value = { 
 	UserDAOImplTest.class, TicketDAOImplTest.class, ClientDAOImplTest.class, ProductDAOImplTest.class, 
 	LicenceDAOImplTest.class, NoteDAOImplTest.class, EventDAOImplTest.class, PriorityDAOImplTest.class, 
-	StatusDAOImplTest.class, MaintenanceDAOImplTest.class
+	StatusDAOImplTest.class, MaintenanceDAOImplTest.class, HibernateQueryProcessorTest.class
 })
 public class DaoSuite {
 

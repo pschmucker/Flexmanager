@@ -1,4 +1,4 @@
-package flexcom.casehistory.ticket.search;
+package flexcom.casehistory.ticket.dao;
 
 import java.util.List;
 
@@ -10,6 +10,8 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import flexcom.casehistory.ticket.search.Query;
+import flexcom.casehistory.ticket.search.QueryProcessor;
 import flexcom.casehistory.ticket.search.filter.Filter;
 
 /**
