@@ -135,7 +135,11 @@ public class LicenceController {
 		if (result.hasErrors()) {
 			return "licence/add";
 		}
-		licence.setCreationDate(new Date());
+		Date currentDate = new Date();
+		licence.setCreationDate(currentDate);
+		if (licence.getBeginningDate() == null){
+			licence.setBeginningDate(currentDate);
+		}
 		licenceDAO.createLicence(licence);
 		return "redirect:/licence.html";
 	}

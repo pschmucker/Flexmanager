@@ -16,7 +16,7 @@
 		<h1>Licence #<c:out value="${licence.id}"/> - <c:out value="${licence.licenceKey}"/></h1>
 	
 		<div>
-			From <fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.creationDate}"/><br/>
+			From <fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.beginningDate}"/><br/>
 			To <fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.expirationDate}"/><br/>
 			Maintenance : ${licence.maintenance}<br/>
 		</div>

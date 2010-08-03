@@ -4,6 +4,7 @@
 	<tr>
 		<th>Key</th>
 		<th>Creation date</th>
+		<th>Beginning date</th>
 		<th>Expiration date</th>
 		<th>Last update</th>
 		<th>Client</th>
@@ -20,6 +21,9 @@
 			</td>
 			<td>
 				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.creationDate}"/>
+			</td>
+			<td>
+				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.beginningDate}"/>
 			</td>
 			<td>
 				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.expirationDate}"/>

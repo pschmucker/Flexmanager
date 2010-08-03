@@ -53,6 +53,11 @@ public class Licence {
 	private Date creationDate;
 	
 	/**
+	 * Licence's beginning date
+	 */
+	private Date beginningDate;
+	
+	/**
 	 * Licence's expiration date
 	 */
 	private Date expirationDate;
@@ -84,6 +89,7 @@ public class Licence {
 	 */
 	public Licence(){
 		creationDate = new Date();
+		beginningDate = new Date();
 		enabled = true;
 	}
 
@@ -145,10 +151,28 @@ public class Licence {
 	}
 
 	/**
+	 * Gets the beginning date
+	 * @return the beginningDate
+	 */
+	@Column(name = "beginningdate")
+	@Temporal(value = TemporalType.TIMESTAMP)
+	public Date getBeginningDate() {
+		return beginningDate;
+	}
+
+	/**
+	 * Sets the beginning date
+	 * @param beginningDate the beginningDate to set
+	 */
+	public void setBeginningDate(Date beginningDate) {
+		this.beginningDate = beginningDate;
+	}
+
+	/**
 	 * Gets the expiration date
 	 * @return the dateExpiration
 	 */
-	@Column(name = "dateexpiration")
+	@Column(name = "expirationdate")
 	@Temporal(value = TemporalType.TIMESTAMP)
 	@Future
 	public Date getExpirationDate() {

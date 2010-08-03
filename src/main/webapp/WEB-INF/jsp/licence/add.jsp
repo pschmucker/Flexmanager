@@ -32,6 +32,13 @@
 				</tr>
 				
 				<tr>
+					<td align="right" width="40%">Date de début :</td>
+					<td width="60%">
+						<form:input path="beginningDate"/>
+					</td>
+				</tr>
+				
+				<tr>
 					<td align="right" width="40%">Date d'expiration :</td>
 					<td width="60%">
 						<form:input path="expirationDate"/>
