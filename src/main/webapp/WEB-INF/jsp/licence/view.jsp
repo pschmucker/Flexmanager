@@ -30,9 +30,5 @@
 			Product : <a href="../product/view.html?id=${licence.product.id}">${licence.product.name} ${licence.product.version}</a><br/>
 		</div>
 		
-		<br/>
-		<a href="../licence.html">Licence page</a><br/>
-		<a href="../index.html">Home page</a><br/>
-		
 	</body>
 </html>

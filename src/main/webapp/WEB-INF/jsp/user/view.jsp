@@ -52,8 +52,7 @@
 		</form:form>
 		
 		<br/>
-		<a href="../user.html">User page</a><br/>
-		<a href="../index.html">Home page</a><br/>
+		<a href="">Change your password</a><br/>
 		
 	</body>
 </html>

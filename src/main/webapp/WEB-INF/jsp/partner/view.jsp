@@ -21,9 +21,5 @@
 			Country : ${partner.country}<br/>
 		</div>
 
-		<br/>
-		<a href="../partner.html">Partner page</a><br/>
-		<a href="../index.html">Home page</a><br/>
-
 	</body>
 </html>

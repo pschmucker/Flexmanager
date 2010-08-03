@@ -21,9 +21,5 @@
 			Description : ${product.description}<br/>
 		</div>
 
-		<br/>
-		<a href="../product.html">Product page</a><br/>
-		<a href="../index.html">Home page</a><br/>
-
 	</body>
 </html>

@@ -94,9 +94,5 @@
 		<br/>
 		<a href="events.html?id=${ticket.id}">History</a><br/>
 	    
-		<br/>
-		<a href="../ticket.html">Ticket page</a><br/>
-		<a href="../index.html">Home page</a><br/>
-		
 	</body>
 </html>

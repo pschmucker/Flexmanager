@@ -24,9 +24,5 @@
 			<br/>
 		</div>
 		
-		<br/>
-		<a href="../contact.html">Contact page</a><br/>
-		<a href="../index.html">Home page</a><br/>
-		
 	</body>
 </html>
