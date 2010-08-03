@@ -52,17 +52,18 @@
 				<c:out value="${user.enabled}"/>
 			</td>
 			<td>
-				<a href="<c:url value ="/user/edit.html?id=${user.id}" />">
-					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" />
+				<a href="<c:url value ="/user/edit.html?id=${user.id}" />" title="Edit">
+					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
 				</a>
 			</td>
 			<c:set var="path" value="<%=request.getContextPath() %>" />
 			<c:set var="action" value="${path}/user/delete.html?id=${user.id}" />
 			<td>
 				<input 
-					src="<c:url 
-					value ="/img/Delete_16x16.png" />" 
+					src="<c:url value ="/img/Delete_16x16.png" />" 
+					alt="delete" 
 					type="image" 
+					title="Delete" 
 					onclick="deleteObject('Are you sure you want to delete this user?', '${user}', '${action}')" 
 				/>
 			</td>

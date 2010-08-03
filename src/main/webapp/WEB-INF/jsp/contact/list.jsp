@@ -24,17 +24,18 @@
 				<c:out value="${contact.enabled}"/>
 			</td>
 			<td>
-				<a href="<c:url value ="/contact/edit.html?id=${contact.id}" />">
-					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" />
+				<a href="<c:url value ="/contact/edit.html?id=${contact.id}" />" title="Edit">
+					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
 				</a>
 			</td>
 			<c:set var="path" value="<%=request.getContextPath() %>" />
 			<c:set var="action" value="${path}/contact/delete.html?id=${contact.id}" />
 			<td>
 				<input 
-					src="<c:url 
-					value ="/img/Delete_16x16.png" />" 
+					src="<c:url value ="/img/Delete_16x16.png" />" 
+					alt="delete" 
 					type="image" 
+					title="Delete" 
 					onclick="deleteObject('Are you sure you want to delete this contact?', '${contact}', '${action}')" 
 				/>
 			</td>

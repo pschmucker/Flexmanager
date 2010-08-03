@@ -55,7 +55,7 @@
 	</li>
 	<li id="authentication">
 		User : <sec:authentication property="principal.username"/>
-		<a href="<c:url value ="/j_spring_security_logout" />">
+		<a href="<c:url value ="/j_spring_security_logout" />" title="Logout">
 			<img src="<c:url value ="/img/logout.png" />" alt="logout" width="16" height="16" border="0"/>
 		</a>
 	</li>

@@ -40,8 +40,8 @@
 				<c:out value="${partner.enabled}"/>
 			</td>
 			<td>
-				<a href="<c:url value ="/partner/edit.html?id=${partner.id}" />">
-					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" />
+				<a href="<c:url value ="/partner/edit.html?id=${partner.id}" />" title="Edit">
+					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
 				</a>
 			</td>
 			<td>
@@ -49,7 +49,9 @@
 				<c:set var="action" value="${path}/partner/delete.html?id=${partner.id}" />
 				<input 
 					src="<c:url value ="/img/Delete_16x16.png" />" 
+					alt="delete" 
 					type="image" 
+					title="Delete" 
 					onclick="deleteObject('Are you sure you want to delete this partner?', '${partner}', '${action}')" 
 				/>
 			</td>
