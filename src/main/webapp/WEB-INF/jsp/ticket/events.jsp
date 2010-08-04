@@ -22,12 +22,14 @@
 		    		<th>Date</th>
 		    		<th>Operation</th>
 		    		<th>Author</th>
+		    		<th>Details</th>
 				</tr>
 			    <c:forEach items="${events}" var="event">
 			    	<tr>
 			    		<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${event.date}"/></td>
 			    		<td><c:out value="${event.action}"/></td>
 			    		<td><a href="../user/view.html?id=${event.author.id}"><c:out value="${event.author.name}"/></a></td>
+			    		<td><c:out value="${event.details}"/></td>
 			    	</tr>
 			    </c:forEach>
 			</table>

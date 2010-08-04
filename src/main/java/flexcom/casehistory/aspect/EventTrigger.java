@@ -44,9 +44,10 @@ public class EventTrigger {
 		User user = userDAO.findByLogin(login);
 		
 		Event event = new Event();
-		event.setAction("create");
+		event.setAction("Ticket created");
 		event.setTicket(ticket);
 		event.setAuthor(user);
+		event.setDetails(ticket.toString());
 		eventDAO.createEvent(event);
 	}
 
@@ -76,9 +77,10 @@ public class EventTrigger {
 		User user = userDAO.findByLogin(login);
 		
 		Event event = new Event();
-		event.setAction("note added");
+		event.setAction("Note added");
 		event.setTicket(note.getTicket());
 		event.setAuthor(user);
+		event.setDetails("« " + note.getNote() + " »");
 		eventDAO.createEvent(event);
 	}
 
