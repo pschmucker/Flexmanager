@@ -16,6 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -151,15 +152,10 @@ public class UserController {
 	@RequestMapping(value = "user/delete")
 	public String delete(@RequestParam(required = true, value = "id") long userId) {
 		
-		
 		SecurityContext context = SecurityContextHolder.getContext();
 		Authentication authentication = context.getAuthentication();
 		UserDetails details = (UserDetails) authentication.getPrincipal();
 		String login = details.getUsername();
-		
-		
-//		String login = ((UserDetails) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal()).getUsername();
-		
 		
 		User loggedUser;
 		try {
@@ -367,4 +363,48 @@ public class UserController {
 	@RequestMapping(value = "user/result")
 	public void resultPage() {
 	}
+
+	/**
+	 * Add the {@link User} object identified by the request parameter "id" to the model
+	 * for changing his password. 
+	 * 
+	 * @param m
+	 *            The model
+	 * @param userId
+	 *            The request parameter "id" for the {@link User}
+	 */
+	@RequestMapping(value = "user/chgpwd")
+	public void formPassword(Model m, @RequestParam(required = true, value = "id") long userId) {
+		m.addAttribute("chgPwdCommand", new ChangePasswordCommand(userId));
+	}
+
+	/**
+	 * Change the password of the {@link User}
+	 * 
+	 * @param user
+	 *            The {@link User} object in the model
+	 * @return The view which will be display
+	 */
+	@RequestMapping(value = "user/chgpwd", method = RequestMethod.POST)
+	public String changePassword(@ModelAttribute("chgPwdCommand") @Valid ChangePasswordCommand cmd, BindingResult result) {
+		if (result.hasErrors()) {
+			return "user/chgpwd";
+		}
+		User user = userDAO.findById(cmd.getUserId());
+		System.out.println(user);
+		System.out.println(cmd.getOldPassword());
+		System.out.println(cmd.getNewPassword());
+		System.out.println(cmd.getConfirmPassword());
+		if (userDAO.checkPassword(user, cmd.getOldPassword())){
+			if (cmd.getNewPassword().equals(cmd.getConfirmPassword())){
+				userDAO.changePassword(user, cmd.getNewPassword());
+				return "redirect:/user/view.html?id=" + cmd.getUserId();
+			}
+			result.addError(new ObjectError("", "Passwords are different"));
+			return "user/chgpwd";
+		}
+		result.addError(new ObjectError("", "Wrong password"));
+		return "user/chgpwd";
+	}
+
 }

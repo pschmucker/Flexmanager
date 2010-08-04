@@ -127,6 +127,14 @@ public interface UserDAO {
 	 * @param pwd The new password
 	 */
 	public void changePassword(User user, String pwd);
+	
+	/**
+	 * Check if the given string matches the user's password
+	 * @param user The user whose password will be checked
+	 * @param pwd The string to match with the user's password
+	 * @return true if the string matches the user's password
+	 */
+	public boolean checkPassword(User user, String pwd);
 
 	/**
 	 * Find all enabled users

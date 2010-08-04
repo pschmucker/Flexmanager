@@ -24,6 +24,7 @@
 	<context:component-scan base-package="flexcom.casehistory.bootstrap" />
 	<context:component-scan base-package="flexcom.casehistory.mvc" />
 	<context:component-scan base-package="flexcom.casehistory.ticket.dao" />
+	<context:component-scan base-package="flexcom.casehistory.data" />
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

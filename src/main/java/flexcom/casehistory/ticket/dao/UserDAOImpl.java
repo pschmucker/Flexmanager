@@ -87,6 +87,15 @@ public class UserDAOImpl extends JPAGenericDAO<User, Long> implements UserDAO {
 		user.setPassword(hash);
 		update(user);
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean checkPassword(User user, String pwd){
+		Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+		return encoder.isPasswordValid(user.getPassword(), pwd, null);
+	}
 
 	/**
 	 * {@inheritDoc}

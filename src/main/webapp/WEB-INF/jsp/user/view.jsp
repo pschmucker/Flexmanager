@@ -52,7 +52,7 @@
 		</form:form>
 		
 		<br/>
-		<a href="">Change your password</a><br/>
+		<a href="chgpwd.html?id=${user.id}">Change your password</a><br/>
 		
 	</body>
 </html>
