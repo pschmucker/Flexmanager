@@ -21,9 +21,11 @@
         
 	<import resource="classes/applicationContext.xml"/>
 	
-	<aop:aspectj-autoproxy/>
+	<aop:aspectj-autoproxy>
+		<aop:include name="eventTrigger"/>
+	</aop:aspectj-autoproxy>
 	
-	<bean class="flexcom.casehistory.aspect.EventTrigger"/>
+	<bean id="eventTrigger" class="flexcom.casehistory.aspect.EventTrigger" />
 
     <mvc:annotation-driven />
     <mvc:view-controller path="index.html" view-name="../../index"/>

@@ -128,6 +128,8 @@ public class Ticket {
 	public Ticket() {
 		creationDate = new Date();
 		usersInCharge = new HashSet<User>();
+		description = "";
+		build = "";
 		enabled = true;
 	}
 

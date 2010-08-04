@@ -374,6 +374,7 @@ public class TicketController {
 		Set<User> inChargeNew = ticket.getUsersInCharge();
 		inChargeNew = (inChargeNew == null) ? new HashSet<User>() : inChargeNew;
 		
+		ticket.setUsersInCharge(inChargeNew);
 		ticketDAO.updateTicket(ticket);
 		
 		Set<User> usersToRemove = new HashSet<User>();
