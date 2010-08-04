@@ -57,7 +57,9 @@
 				<c:out value="${ticket.build}"/>
 			</td>
 			<td>
-				<c:out value="${ticket.contact}"/>
+				<a href="<c:url value="/contact/view.html?id=${ticket.contact.id}" />">
+					<c:out value="${ticket.contact}"/>
+				</a>
 			</td>
 			<td>
 				<c:out value="${ticket.usersInCharge}"/>

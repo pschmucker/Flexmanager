@@ -35,8 +35,6 @@
 
 		<br/>
 		<a href="view.html?id=${events[0].ticket.id}">Back to ticket</a><br/>
-		<a href="../ticket.html">Ticket page</a><br/>
-		<a href="../index.html">Home page</a><br/>
 		
 	</body>
 </html>

@@ -391,10 +391,6 @@ public class UserController {
 			return "user/chgpwd";
 		}
 		User user = userDAO.findById(cmd.getUserId());
-		System.out.println(user);
-		System.out.println(cmd.getOldPassword());
-		System.out.println(cmd.getNewPassword());
-		System.out.println(cmd.getConfirmPassword());
 		if (userDAO.checkPassword(user, cmd.getOldPassword())){
 			if (cmd.getNewPassword().equals(cmd.getConfirmPassword())){
 				userDAO.changePassword(user, cmd.getNewPassword());
