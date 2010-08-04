@@ -1,5 +1,6 @@
 package flexcom.casehistory.ticket.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -103,6 +104,7 @@ public class LicenceDAOImpl extends JPAGenericDAO<Licence, Long> implements Lice
 	 */
 	@Override
 	public void updateLicence(Licence licence) {
+		licence.setLastUpdate(new Date());
 		update(licence);
 	}
 

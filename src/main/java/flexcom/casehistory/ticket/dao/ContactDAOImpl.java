@@ -1,5 +1,6 @@
 package flexcom.casehistory.ticket.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -72,6 +73,7 @@ public class ContactDAOImpl extends JPAGenericDAO<Contact, Long> implements Cont
 	 */
 	@Override
 	public void updateContact(Contact contact) {
+		contact.setLastUpdate(new Date());
 		update(contact);
 	}
 

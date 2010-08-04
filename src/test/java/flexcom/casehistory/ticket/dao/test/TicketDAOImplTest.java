@@ -163,7 +163,7 @@ public class TicketDAOImplTest {
 	 * {@link InvalidDataAccessApiUsageException} if the given argument is
 	 * <code>null</code>
 	 */
-	@Test(expected = InvalidDataAccessApiUsageException.class)
+	@Test(expected = NullPointerException.class)
 	public void testUpdateNullTicket() {
 		ticketDAO.updateTicket(null);
 	}

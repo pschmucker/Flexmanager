@@ -1,5 +1,6 @@
 package flexcom.casehistory.ticket.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -82,6 +83,7 @@ public class PartnerDAOImpl extends JPAGenericDAO<Partner, Long> implements Part
 	 */
 	@Override
 	public void updatePartner(Partner partner) {
+		partner.setLastUpdate(new Date());
 		update(partner);
 	}
 

@@ -1,5 +1,6 @@
 package flexcom.casehistory.ticket.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -74,6 +75,7 @@ public class UserDAOImpl extends JPAGenericDAO<User, Long> implements UserDAO {
 	 */
 	@Override
 	public void updateUser(User user) {
+		user.setLastUpdate(new Date());
 		update(user);
 	}
 	

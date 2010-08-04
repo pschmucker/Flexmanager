@@ -1,5 +1,6 @@
 package flexcom.casehistory.ticket.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -85,6 +86,7 @@ public class ProductDAOImpl extends JPAGenericDAO<Product, Long> implements Prod
 	 */
 	@Override
 	public void updateProduct(Product product) {
+		product.setLastUpdate(new Date());
 		update(product);
 	}
 

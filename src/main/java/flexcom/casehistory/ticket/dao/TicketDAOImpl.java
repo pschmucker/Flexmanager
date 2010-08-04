@@ -1,5 +1,6 @@
 package flexcom.casehistory.ticket.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -53,6 +54,7 @@ public class TicketDAOImpl extends JPAGenericDAO<Ticket, Long> implements Ticket
 	 */
 	@Override
 	public void updateTicket(Ticket ticket) {
+		ticket.setLastUpdate(new Date());
 		update(ticket);
 	}
 

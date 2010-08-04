@@ -162,7 +162,7 @@ public class UserDAOImplTest {
 	/**
 	 * Test if the updateUser(User) method throws an {@link InvalidDataAccessApiUsageException} if the given argument is null
 	 */
-	@Test(expected = InvalidDataAccessApiUsageException.class)
+	@Test(expected = NullPointerException.class)
 	public void testUpdateNullUser() {
 		userDAO.updateUser(null);
 	}

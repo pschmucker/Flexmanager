@@ -1,5 +1,6 @@
 package flexcom.casehistory.ticket.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -113,6 +114,7 @@ public class NoteDAOImpl extends JPAGenericDAO<Note, Long> implements NoteDAO {
 	 */
 	@Override
 	public void updateNote(Note note) {
+		note.setLastUpdate(new Date());
 		update(note);
 	}
 	

@@ -142,7 +142,7 @@ public class LicenceDAOImplTest {
 	/**
 	 * Test if the updateLicence(Licence) method throws an {@link InvalidDataAccessApiUsageException} if the given argument is null
 	 */
-	@Test(expected = InvalidDataAccessApiUsageException.class)
+	@Test(expected = NullPointerException.class)
 	public void testUpdateNullLicence() {
 		licenceDAO.updateLicence(null);
 	}

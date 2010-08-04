@@ -1,6 +1,7 @@
 package flexcom.casehistory.ticket.entity;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -14,6 +15,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -33,6 +36,8 @@ public class Contact {
 	private Company company;
 	private Set<Ticket> tickets;
 	private boolean enabled;
+	private Date lastUpdate;
+	
 	
 	public Contact() {
 		tickets = Collections.emptySet();
@@ -88,8 +93,18 @@ public class Contact {
 		this.enabled = enabled;
 	}
 	
+	@Column(name = "lastupdate")
+	@Temporal(value = TemporalType.TIMESTAMP)	
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+	
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
+	}
+	
 	/**
-	 * {@inheritDoc} Compare two companies using their id
+	 * {@inheritDoc} Compare two contacts using their id
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -104,7 +119,7 @@ public class Contact {
 	}
 
 	/**
-	 * {@inheritDoc} Calculates the hashCode using the company's id
+	 * {@inheritDoc} Calculates the hashCode using the contact's id
 	 */
 	@Override
 	public int hashCode() {
@@ -114,7 +129,7 @@ public class Contact {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @return The company's name
+	 * @return The contact's name
 	 */
 	@Override
 	public String toString() {
