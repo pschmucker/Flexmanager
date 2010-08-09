@@ -12,9 +12,24 @@
 				font-style: bold;
 			}
 		</style> 
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/js/dijit/themes/tundra/tundra.css" />"/>
+		<script type="text/javascript" src="<c:url value ="/js/dojo/dojo.js" />"></script>
+		<script type="text/javascript" src="<c:url value ="/js/datepicker.js" />"></script>
+		<script type="text/javascript">
+			initDatePicker("beginningDate", new Date(
+				<fmt:formatDate pattern="yyyy" value="${licence.beginningDate}" />, 
+				<fmt:formatDate pattern="MM" value="${licence.beginningDate}" /> - 1, 
+				<fmt:formatDate pattern="dd" value="${licence.beginningDate}" />
+			));
+			initDatePicker("expirationDate", new Date(
+				<fmt:formatDate pattern="yyyy" value="${licence.expirationDate}"/>, 
+				<fmt:formatDate pattern="MM" value="${licence.expirationDate}"/> - 1, 
+				<fmt:formatDate pattern="dd" value="${licence.expirationDate}"/>
+			));
+		</script>
 		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
-	<body>
+	<body class="tundra">
 
 		<div class="header">
 			<jsp:include page="../menu.jsp" />
@@ -34,14 +49,18 @@
 				<tr>
 					<td align="right" width="40%">Beginning date :</td>
 					<td width="60%">
-						<form:input path="beginningDate"/>
+						<spring:bind path="beginningDate">
+							<input id="beginningDate" type="text" />
+						</spring:bind>
 					</td>
 				</tr>
 				
 				<tr>
 					<td align="right" width="40%">Expiration date :</td>
 					<td width="60%">
-						<form:input path="expirationDate"/>
+						<spring:bind path="expirationDate">
+							<input id="expirationDate" type="text" />
+						</spring:bind>
 					</td>
 				</tr>
 				

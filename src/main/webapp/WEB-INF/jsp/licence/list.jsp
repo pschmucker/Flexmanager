@@ -23,10 +23,10 @@
 				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.creationDate}"/>
 			</td>
 			<td>
-				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.beginningDate}"/>
+				<fmt:formatDate pattern="dd/MM/yyyy" value="${licence.beginningDate}"/>
 			</td>
 			<td>
-				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.expirationDate}"/>
+				<fmt:formatDate pattern="dd/MM/yyyy" value="${licence.expirationDate}"/>
 			</td>
 			<td>
 				<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${licence.lastUpdate}"/>

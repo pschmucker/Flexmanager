@@ -11,10 +11,17 @@
 				color: red;
 				font-style: bold;
 			}
-		</style> 
+		</style>
+		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/js/dijit/themes/tundra/tundra.css" />"/>
+		<script type="text/javascript" src="<c:url value ="/js/dojo/dojo.js" />"></script>
+		<script type="text/javascript" src="<c:url value ="/js/datepicker.js" />"></script>
+		<script type="text/javascript">
+			initDatePicker("beginningDate", new Date());
+			initDatePicker("expirationDate", new Date());
+		</script>
 		<link type="text/css" media="all" rel="stylesheet" href="<c:url value="/css/style.css" />"/>
 	</head>
-	<body>
+	<body class="tundra">
 
 		<div class="header">
 			<jsp:include page="../menu.jsp" />
@@ -34,14 +41,18 @@
 				<tr>
 					<td align="right" width="40%">Date de début :</td>
 					<td width="60%">
-						<form:input path="beginningDate"/>
+						<spring:bind path="beginningDate">
+							<input id="beginningDate" type="text" />
+						</spring:bind>
 					</td>
 				</tr>
 				
 				<tr>
 					<td align="right" width="40%">Date d'expiration :</td>
 					<td width="60%">
-						<form:input path="expirationDate"/>
+						<spring:bind path="expirationDate">
+							<input id="expirationDate" type="text" />
+						</spring:bind>
 					</td>
 				</tr>
 				
