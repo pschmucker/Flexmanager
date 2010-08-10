@@ -8,7 +8,9 @@ import java.util.Set;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.orm.hibernate3.HibernateJdbcException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -138,7 +140,18 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "user/add";
 		}
-		userDAO.createUser(user);
+		try {
+			userDAO.createUser(user);
+		} catch (DataIntegrityViolationException e) {
+			try{
+				userDAO.findByLogin(user.getLogin());
+				result.addError(new ObjectError("", "Login already exist"));
+			}
+			catch (EmptyResultDataAccessException e2) {
+				result.addError(new ObjectError("", "Email already used"));
+			}
+			return "user/add";
+		}
 		return "redirect:/user.html";
 	}
 
@@ -199,7 +212,23 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "user/edit";
 		}
-		userDAO.updateUser(user);
+		try {
+			userDAO.updateUser(user);
+		} catch (HibernateJdbcException e) {
+			try{
+				User u = userDAO.findByLogin(user.getLogin());
+				if (u.getId() != user.getId()){
+					result.addError(new ObjectError("", "Login already exist"));
+				}
+				else {
+					result.addError(new ObjectError("", "Email already used"));
+				}
+			}
+			catch (EmptyResultDataAccessException e2) {
+				result.addError(new ObjectError("", "Email already used"));
+			}
+			return "user/edit";
+		}
 		return "redirect:/user.html";
 	}
 

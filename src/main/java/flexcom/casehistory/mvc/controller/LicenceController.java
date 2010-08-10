@@ -10,9 +10,13 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.orm.hibernate3.HibernateJdbcException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -140,7 +144,18 @@ public class LicenceController {
 		if (licence.getBeginningDate() == null){
 			licence.setBeginningDate(currentDate);
 		}
-		licenceDAO.createLicence(licence);
+		try {
+			licenceDAO.createLicence(licence);
+		} catch (DataIntegrityViolationException e) {
+			try{
+				licenceDAO.findByLicenceKey(licence.getLicenceKey());
+				result.addError(new ObjectError("", "Duplicated licence key"));
+			}
+			catch (EmptyResultDataAccessException e2) {
+				result.addError(new ObjectError("", licence.getClient() + " has already a licence for " + licence.getProduct()));
+			}
+			return "licence/add";
+		}
 		return "redirect:/licence.html";
 	}
 
@@ -224,7 +239,12 @@ public class LicenceController {
 		if (result.hasErrors()) {
 			return "licence/edit";
 		}
-		licenceDAO.updateLicence(licence);
+		try {
+			licenceDAO.updateLicence(licence);
+		} catch (HibernateJdbcException e) {
+			result.addError(new ObjectError("", "Duplicated licence key"));
+			return "licence/edit";
+		}
 		return "redirect:/licence.html";
 	}
 

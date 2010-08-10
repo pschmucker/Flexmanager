@@ -7,9 +7,12 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.orm.hibernate3.HibernateJdbcException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -85,7 +88,12 @@ public class PartnerController {
 		if (result.hasErrors()) {
 			return "partner/add";
 		}
-		partnerDAO.createPartner(partner);
+		try {
+			partnerDAO.createPartner(partner);
+		} catch (DataIntegrityViolationException e) {
+			result.addError(new ObjectError("", "Company with this name already exist"));
+			return "partner/add";
+		}
 		return "redirect:/partner.html";
 	}
 
@@ -129,7 +137,12 @@ public class PartnerController {
 		if (result.hasErrors()) {
 			return "partner/edit";
 		}
-		partnerDAO.updatePartner(partner);
+		try {
+			partnerDAO.updatePartner(partner);
+		} catch (HibernateJdbcException e) {
+			result.addError(new ObjectError("", "Company with this name already exist"));
+			return "partner/edit";
+		}
 		return "redirect:/partner.html";
 	}
 

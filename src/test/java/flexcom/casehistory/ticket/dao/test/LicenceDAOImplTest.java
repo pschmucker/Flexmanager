@@ -122,7 +122,7 @@ public class LicenceDAOImplTest {
 	}
 
 	/**
-	 * Test if the findByLicenceKey(String) method throws an {@link EmptyResultDataAccessException} if the given argument is null
+	 * Test if the findByLicenceKey(String) method returns <code>null</code> if the given argument is <code>null</code>
 	 */
 	@Test(expected = EmptyResultDataAccessException.class)
 	public void testFindByNullLicenceKey() {

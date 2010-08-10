@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -84,9 +85,15 @@ public class LicenceDAOImpl extends JPAGenericDAO<Licence, Long> implements Lice
 	 */
 	@Override
 	public Licence findByLicenceKey(String key) {
-		Query q = entityManager.createNamedQuery("licence.findByLicenceKey");
-		q.setParameter("licenceKey", key);
-		return (Licence) q.getSingleResult();
+		Licence l; 
+		try {
+			Query q = entityManager.createNamedQuery("licence.findByLicenceKey");
+			q.setParameter("licenceKey", key);
+			l = (Licence) q.getSingleResult();
+		} catch (EmptyResultDataAccessException e) {
+			l = null;
+		}
+		return l;
 	}
 
 	/**

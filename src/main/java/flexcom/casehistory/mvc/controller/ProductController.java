@@ -7,9 +7,12 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.orm.hibernate3.HibernateJdbcException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -85,7 +88,12 @@ public class ProductController {
 		if (result.hasErrors()) {
 			return "product/add";
 		}
-		productDAO.createProduct(product);
+		try {
+			productDAO.createProduct(product);
+		} catch (DataIntegrityViolationException e) {
+			result.addError(new ObjectError("", "Product with this version already exist"));
+			return "product/add";
+		}
 		return "redirect:/product.html";
 	}
 
@@ -129,7 +137,12 @@ public class ProductController {
 		if (result.hasErrors()) {
 			return "product/edit";
 		}
-		productDAO.updateProduct(product);
+		try {
+			productDAO.updateProduct(product);
+		} catch (HibernateJdbcException e) {
+			result.addError(new ObjectError("", "Product with this version already exist"));
+			return "product/edit";
+		}
 		return "redirect:/product.html";
 	}
 
