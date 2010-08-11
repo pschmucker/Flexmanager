@@ -1,5 +1,6 @@
 package flexcom.casehistory.ticket.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import flexcom.casehistory.ticket.entity.Ticket;
@@ -135,6 +136,13 @@ public interface UserDAO {
 	 * @return true if the string matches the user's password
 	 */
 	public boolean checkPassword(User user, String pwd);
+	
+	/**
+	 * Update the last login for an user
+	 * @param user 
+	 * @param lastLogin 
+	 */
+	public void updateLastLogin(User user, Date lastLogin);
 
 	/**
 	 * Find all enabled users

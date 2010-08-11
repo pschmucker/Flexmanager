@@ -31,6 +31,7 @@
 				</tr>
 				
 				<form:hidden path="password"/>
+				<form:hidden path="lastLogin"/>
 				
 				<tr>
 					<td align="right" width="40%">Name :</td>

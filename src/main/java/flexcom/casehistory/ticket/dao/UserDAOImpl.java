@@ -174,8 +174,21 @@ public class UserDAOImpl extends JPAGenericDAO<User, Long> implements UserDAO {
 		return entityManager.createNamedQuery("user.count", Long.class).getSingleResult();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<User> findAllEnabled() {
 		return entityManager.createQuery("select u from User u where u.enabled = true", User.class).getResultList();
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void updateLastLogin(User user, Date lastLogin){
+		user.setLastLogin(lastLogin);
+		update(user);
+	}
+
 }

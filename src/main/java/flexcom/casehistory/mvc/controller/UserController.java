@@ -1,5 +1,7 @@
 package flexcom.casehistory.mvc.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +10,7 @@ import java.util.Set;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.orm.hibernate3.HibernateJdbcException;
@@ -255,6 +258,8 @@ public class UserController {
 	 */
 	@InitBinder
 	public void binder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 		binder.registerCustomEditor(Ticket.class, ticketEditor);
 		binder.registerCustomEditor(Role.class, roleEditor);
 	}
@@ -390,8 +395,7 @@ public class UserController {
 	 * Mapping for result page
 	 */
 	@RequestMapping(value = "user/result")
-	public void resultPage() {
-	}
+	public void resultPage() {}
 
 	/**
 	 * Add the {@link User} object identified by the request parameter "id" to the model

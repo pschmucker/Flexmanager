@@ -9,6 +9,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.beans.PropertyEditor;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +20,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -390,11 +392,14 @@ public class UserControllerTest {
 		WebDataBinder binder = new WebDataBinder(null);
 		controller.binder(binder);
 
+		PropertyEditor dateEditor = binder.findCustomEditor(Date.class, null);
 		PropertyEditor ticketEditor = binder.findCustomEditor(Ticket.class, null);
 		PropertyEditor roleEditor = binder.findCustomEditor(Role.class, null);
 
+		assertNotNull(dateEditor);
 		assertNotNull(ticketEditor);
 		assertNotNull(roleEditor);
+		assertTrue(dateEditor instanceof CustomDateEditor);
 		assertTrue(ticketEditor instanceof TicketEditor);
 		assertTrue(roleEditor instanceof RoleEditor);
 	}

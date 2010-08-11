@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="include.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>Echec de l'authentification</title>
+		<title>Access denied</title>
 	</head>
 	<body>
 		<div>
-			L'identifiant ou le mot de passe saisi est incorrect
+			Vous n'avez pas les droits nécessaires pour accéder à cette page !
 			<br/>
-			<a href="login.jsp">Back</a>
+			<a href="<c:url value="/index.html" />">Home</a>
 		</div>
 	</body>
 </html>
