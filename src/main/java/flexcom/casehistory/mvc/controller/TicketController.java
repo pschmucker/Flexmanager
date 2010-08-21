@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import flexcom.casehistory.helper.MailHelper;
 import flexcom.casehistory.mvc.editor.CompanyEditor;
 import flexcom.casehistory.mvc.editor.ContactEditor;
 import flexcom.casehistory.mvc.editor.PriorityEditor;
@@ -237,6 +238,7 @@ public class TicketController {
 			for (User u : inCharge) {
 				u.assign(ticket);
 				userDAO.updateUser(u);
+				MailHelper.sendNotificationForNewTicket(u, ticket);
 			}
 		}
 		return "redirect:/ticket.html";

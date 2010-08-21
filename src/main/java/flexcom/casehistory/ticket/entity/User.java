@@ -118,6 +118,8 @@ public class User {
 	private Set<Note> notes;
 	
 	private boolean enabled;
+	
+	private boolean emailNotificationEnabled;
 
 	/**
 	 * Constructor without arguments. Put the default access level to 0 and
@@ -131,6 +133,7 @@ public class User {
 		roles = new HashSet<Role>();
 		creationDate = new Date();
 		enabled = true;
+		emailNotificationEnabled = true;
 	}
 
 	/**
@@ -437,6 +440,14 @@ public class User {
 	
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	
+	public boolean isEmailNotificationEnabled() {
+		return emailNotificationEnabled;
+	}
+	
+	public void setEmailNotificationEnabled(boolean emailNotificationEnabled) {
+		this.emailNotificationEnabled = emailNotificationEnabled;
 	}
 
 	/**

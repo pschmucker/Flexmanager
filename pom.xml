@@ -20,6 +20,8 @@
 		<slf4j.version>1.6.0</slf4j.version>
 		<taglibs.version>1.1.2</taglibs.version>
 		<jstl.version>1.1.2</jstl.version>
+		<servlet.version>2.5</servlet.version>
+		<javax.mail.version>1.4.1</javax.mail.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -148,7 +150,12 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<version>${servlet.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${javax.mail.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
