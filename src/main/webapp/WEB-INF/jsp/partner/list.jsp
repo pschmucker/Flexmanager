@@ -41,7 +41,7 @@
 			</td>
 			<td>
 				<a href="<c:url value ="/partner/edit.html?id=${partner.id}" />" title="Edit">
-					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
+					<img src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
 				</a>
 			</td>
 			<td>

@@ -17,6 +17,7 @@
 		<th>Enabled</th>
 	</tr>
 	<c:forEach items="${list}" var="ticket">
+	
 		<tr class="entity">
 			<td>
 				<a href="<c:url value="/ticket/view.html?id=${ticket.id}" />">
@@ -69,7 +70,7 @@
 			</td>
 			<td>
 				<a href="<c:url value="/ticket/edit.html?id=${ticket.id}" />" title="Edit">
-					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
+					<img src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
 				</a>
 			</td>
 			<c:set var="path" value="<%=request.getContextPath() %>" />
@@ -84,5 +85,6 @@
 				/>
 			</td>
 		</tr>
+		
 	</c:forEach>
 </table>

@@ -25,7 +25,7 @@
 			</td>
 			<td>
 				<a href="<c:url value ="/contact/edit.html?id=${contact.id}" />" title="Edit">
-					<img border="0" src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
+					<img src="<c:url value ="/img/Edit_16x16.png" />" alt="edit" />
 				</a>
 			</td>
 			<c:set var="path" value="<%=request.getContextPath() %>" />
