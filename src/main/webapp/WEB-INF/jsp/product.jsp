@@ -12,10 +12,10 @@
 	</head>
 	<body>
 	
-		<div class="header">
+		<div id="header">
 			<jsp:include page="menu.jsp" />
 	    </div>
-		<div>
+		<div id="content">
 			<jsp:include page="product/list.jsp" />
 	    </div>
 	

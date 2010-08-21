@@ -2,6 +2,10 @@ body {
 	margin:0;
 }
 
+#content {
+	margin: 20px;
+}
+
 #menu {
 	width:100%;
 	height:30px;
@@ -103,6 +107,14 @@ body {
 
 .entity:hover {
 	background:#FFFFAA;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #EEEEEE
 }
 
 img {

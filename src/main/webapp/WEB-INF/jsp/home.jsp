@@ -12,7 +12,7 @@
 		<div id="header">
 			<%@ include file="menu.jsp"%>
 		</div>
-		<div>
+		<div id="content">
 			<h1>10 Last tickets</h1>
 			<c:set var="list" value="${last}" />
 			<div>
