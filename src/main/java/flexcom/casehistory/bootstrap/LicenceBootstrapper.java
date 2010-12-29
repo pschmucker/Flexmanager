@@ -62,7 +62,7 @@ public class LicenceBootstrapper implements Bootstrapper {
 			Licence licence = new Licence();
 			licence.setLicenceKey("52326-2302-9232-2309827");
 			try {
-				licence.setExpirationDate(dateFormatter.parse("31/08/2010"));
+				licence.setExpirationDate(dateFormatter.parse("31/12/2011"));
 			}
 			catch (ParseException e) {
 				licence.setExpirationDate(null);
